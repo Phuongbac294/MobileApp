@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Trần Văn Khiêm",
+        "positions": "Giám đốc",
+        "year": "1990" ,
+        "address": "Bắc Giang",
+        "telephone": "0914999030",
+        "email": "tranvankhiem@gmail.com"
+    },
+    {
+        "name": "Nguyễn Thị Hà",
+        "positions": "Kế toán trưởng",
+        "year": "1984" ,
+        "address": "Bắc Ninh",
+        "telephone": "0914999026",
+        "email": "nguyenthiha@gmail.com"
+    },
+    {
+        "name": "Nguyễn Sĩ Phương",
+        "positions": "Kỹ thuật",
+        "year": "1983" ,
+        "address": "Bắc Ninh",
+        "telephone": "0914999025",
+        "email": "nguyensyphuong@gmail.com"
+    }
+]

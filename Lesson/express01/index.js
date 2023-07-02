@@ -1,11 +1,13 @@
-const express = require('express');
+const fs = require('fs');
+const readFile = require('./src/lib/readFile');
 
-const app = express();
+ fs.readFile(
+    './src/database/text.txt',
+    'utf-8',
+    (err, re) => {
+        if (err) {console.log(err)};
+        console.log('reuslt',re);
+    }
+ )
 
-app.get('/', (req, res) => {
-    res.send('Heloo World')
-})
-
-app.listen(3001, () => {
-    console.log('app run on port 3001');
-})
+ readFile('personnel.js')
