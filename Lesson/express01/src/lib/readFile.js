@@ -10,7 +10,7 @@ const path = require('path');
 //     })
 // }
 
-const readSyc = async(filename) => {
+const readSyc = async(filename = 'personnel.json') => {
     try {
         const data =  await fs.promises.readFile(
         path.resolve(__dirname, `../database/${filename}`),
