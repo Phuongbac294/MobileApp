@@ -1,6 +1,14 @@
 const exp = require('express'); // khai báo biến dùng thư viện express
+const bodyParser = require('body-parser');
+const cors = require('cors') ;
 
 const app = exp(); // khai báo biến
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors());
+
+// router
 
 // http
 // 1. đường dẫn
@@ -61,11 +69,24 @@ app.use('/student', studentRoute);
 const teacherRoute = exp.Router();
 teacherRoute.get('/', (req, res) => {
   res.send('Teacher');
+  console.log('req', {
+    method: req.method,
+    url: req.url,
+    params: req.params,
+    query: req.query,
+    body: req.body,
+    headers: req.headers
+});
   // res.sendFile(`index1.html`);
 });
 teacherRoute.get('/user', (req, res) => {
   // res.send('Teacher');
   res.sendFile('/Users/Dell/Documents/GitHub/MobileApp/lesson/express02/index1.html');
+});
+
+teacherRoute.post('/', (req, res) => {
+  console.log('rq', req.body);
+  res.json(req.body);
 });
 
 app.use('/teacher', teacherRoute); 
