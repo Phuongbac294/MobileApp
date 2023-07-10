@@ -1,7 +1,21 @@
 const exp = require('express'); // khai báo biến dùng thư viện express
+<<<<<<< HEAD
 var bodyParser = require('body-parser');
 // var cors = require('cors');
+=======
+
+const bodyParser = require('body-parser');
+const cors = require('cors');
+
+>>>>>>> 793d48273276f2772449f73d32313866b60f3d45
 const app = exp(); // khai báo biến
+
+const userHandler = require('./hand')
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors());
+
+// router
 
 // http
 // 1. đường dẫn
@@ -63,13 +77,32 @@ const studentRoute = require('./src/student.js');
 app.use('/student', studentRoute);
 
 const teacherRoute = exp.Router();
-teacherRoute.get('/', (req, res) => {
-  res.send('Teacher');
+teacherRoute.get('/', 
+  async (req, res) => {
+    const data = await userHandler.readAllUser();
+  res.status(200).json(data);
+  console.log('req', {
+    method: req.method,
+    url: req.url,
+    params: req.params,
+    query: req.query,
+    body: req.body,
+    headers: req.headers
+});
   // res.sendFile(`index1.html`);
 });
+
+// read all user
 teacherRoute.get('/user', (req, res) => {
   // res.send('Teacher');
   res.sendFile('/Users/Dell/Documents/GitHub/MobileApp/lesson/express02/index1.html');
+});
+
+
+// create user routes
+teacherRoute.post('/', (req, res) => {
+  console.log('rq', req.body);
+  res.json(req.body);
 });
 
 app.use('/teacher', teacherRoute); 
