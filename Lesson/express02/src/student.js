@@ -1,5 +1,6 @@
 const exp = require('express');
 const studentRoute = exp.Router();
+const student = require('/student.json');
 
 const nameRouter = require('./name.js');
 
@@ -8,7 +9,8 @@ studentRoute.get('/', (req, res) => {
 });
 
 studentRoute.get('/add', (req, res) => {
-    res.send('Nhập tên bạn vào')
+    
+    res.json(student);
 });
 
 studentRoute.use('/name', nameRouter);

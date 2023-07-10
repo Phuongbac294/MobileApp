@@ -1,6 +1,4 @@
 const exp = require('express'); // khai báo biến dùng thư viện express
-const bodyParser = require('body-parser');
-const cors = require('cors') ;
 
 const app = exp(); // khai báo biến
 
@@ -56,7 +54,10 @@ app.use(cors());
         // 20. res.renderJSONString
         // 21. res.renderXML
 
-// app.use(express.static('public'));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(cors());
+        
 app.get('/', (req, res) => { // get đường dẫn trên web với function req, res
     //req - yêu cầu từ Client
     // res - trả lời từ server
