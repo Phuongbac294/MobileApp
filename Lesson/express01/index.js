@@ -1,5 +1,6 @@
 const fs = require('fs');                           // khai báo biến sử dụng thư viện fs
 const path = require('path');
+const generateId = () => new Date().valueOf();
 // const readSyc = require('./src/lib/readFile');      // Khai báo biến sử dụng hàm theo đường dẫn
 
 //  fs.readFile(  // Đọc file
@@ -21,85 +22,61 @@ const path = require('path');
 //     console.log('dataResult',dataResult);
 // }
 
-const readAll = async (fileName = 'personnel.json') => {
+const readAll = async (fileName) => {
     try {
         const data = await fs.promises.readFile(
             path.resolve(__dirname, `./src/database/${fileName}`),
-            'utf-8');
+            'utf-8'
+            );
         return JSON.parse(data);
-        
+        // console.log('readAll', JSON.parse(data));
     } catch (err) {
-        console.log(err);
         return [];
     }
 };
 
-const readAllStudent = async (fileName = 'student.json') => {
+const  createFile = async (fileName, studentData) => {
     try {
-        const data = await fs.promises.readFile(
-            path.resolve(_dirname, `${fileName}`),
-            'utf-8',
-        )
-        return JSON.parse(data);
-    } catch (err) {
-        return [];
-    }
-}
-const  createStudent = async (studentData) => {
-    try {
-        const allStudent = await readAllStudent();
+        const allStudent = await readAll(fileName);
+        studentData.id = generateId()
         allStudent.push(studentData);
-        const dataSave = JSON.stringify(allStudent, null, 2);
+        const dataSave = JSON.stringify(allStudent, null, 4);
         await fs.promises.writeFile(
-                    path.resolve(__dirname, `student.json`),
+                    path.resolve(__dirname, `./src/database/${fileName}`),
                     dataSave
                 )
+        return console.log('createStudent', JSON.parse(dataSave));
     } catch (err) {
         return [];
     }
 }
 
-const createFile = async (data) => {  // Khai báo biến tạo file từ hàm async
-        try {                                   // thực hiện hàm
-            const allPersonnel = await readAll();  // Khai báo biến kêt thúc hàm sử dụng function lấy tất cả dữ liệu ra
-            allPersonnel.push(data);       // Thêm dữ liệu vào cuối của biến
-            // console.log(allPersonnel); //
-            const dataSave = JSON.stringify(allPersonnel); // khai báo biến data dùng chuỗi của biến all sang json
-            await fs.promises.writeFile(
-                path.resolve(__dirname, `/src/database/personnel.json`),
-                dataSave
-            )
-            console.log('file', path.join(__dirname,`./src/database/${filename}`));
-                // console.log('data saved', dataSave);
-        } catch (err) {} // khi xảy ra lỗi
-    }
-
+const updateFile = async (fileName, id, newUpdate) => {
+    try {
+        const data = await readAll(fileName);
+        const dataId = data.find(user => user.id === id);
+        // console.log(dataId);
+        const dataUpdate = {...dataId, newUpdate};
+        console.log(dataUpdate);
+        data = [...data, dataUpdate];
+        const dataSave = JSON.stringify(data, null, 4);
+        await fs.promises.write(path.resolve(__dirname, `./src/database/${fileName}`), dataSave);
+    } catch (err) {console.log(err);}
+}
 const newPersonnel = {
-        name: "Nguyễn Sỹ Thức",
-        positions: "Quản đốc",
-        year: "1975" ,
+        name: "Nguyễn Sỹ Chí",
+        positions: "Phó giám đốc",
+        year: "1973" ,
         address: "Bắc Ninh",
-        telephone: "0914999029",
-        email: "nguyensythuc@gmail.com"
+        telephone: "0914999028",
+        email: "nguyensychi@gmail.com"
 }
 
-const newStudent = {
-    name: "abccc",
-    age: 18,
-}
 
-const danhsach = async () => {
-    await createFile(newStudent)
-        const dataResult = await readAllStudent();
-        console.log('dataStudent', dataResult);
-        // console.log('push ', newStudent);
-}
-const main = async () => {
-    await createFile(newPersonnel)
-    const dataResult = await readAll();
-    console.log('dataResult', dataResult);
-    // console.log('push ', newPersonnel);
-}
 
-danhsach();
-main() ;
+
+
+// readAll('student.json');
+// createFile('student.json', {name: "hoc", age: 19});
+// createFile('personnel.json', newPersonnel);
+updateFile('personnel.json', "3", {name: "hoc"})

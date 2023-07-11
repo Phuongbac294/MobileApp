@@ -43,7 +43,7 @@ userRoute.get('/name/:userName', async (req, res) =>{
 })
 
 userRoute.post('/', async (req, res) => {
-    const newDataBody = req.body; // user mới dc lấy từ body
+    const newDataBody = await req.body; // user mới dc lấy từ body
     console.log(req.body);
     await handler.createUser(newDataBody);
     const data = await handler.readAllUser();
