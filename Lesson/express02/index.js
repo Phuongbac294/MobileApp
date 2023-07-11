@@ -1,13 +1,8 @@
 const exp = require('express'); // khai báo biến dùng thư viện express
-<<<<<<< HEAD
-var bodyParser = require('body-parser');
-// var cors = require('cors');
-=======
 
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
->>>>>>> 793d48273276f2772449f73d32313866b60f3d45
 const app = exp(); // khai báo biến
 
 const userHandler = require('./hand')
@@ -63,9 +58,6 @@ app.use(cors());
         // 20. res.renderJSONString
         // 21. res.renderXML
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-// app.use(cors());
         
 app.get('/', (req, res) => { // get đường dẫn trên web với function req, res
     //req - yêu cầu từ Client
@@ -114,6 +106,6 @@ app.get('/*', (req, res) => { // đường dẫn phân cấp xuống chi tiết 
 app.post('/', (req, res) => {
     res.send('Hello World in post!');
 })
-app.listen(3000, () => {
-  console.log('Example app listening on port 3000!'); // cổng server lắng nghe chương trình ứng dụng
-});
+app.listen(3001, () => {
+  console.log('Example app listening on port 3001!'); // cổng server lắng nghe chương trình ứng dụng
+})
