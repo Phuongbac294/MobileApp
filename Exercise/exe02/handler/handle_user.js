@@ -1,14 +1,15 @@
 const fs = require('fs');
-// const path = require('path');
+const path = require('path');
 
-const fsRead = async () => await fs.promises.readFile('../database/user.json', 'utf8');
+const fsRead = async () => await fs.promises.readFile(path.resolve(__dirname,`../../database/teacher.json`), 'utf8');
 const fsWrite = async (string) => await fs.promises.writeFile('../database/user.json', string);
 const generateId = () => new Date().valueOf();
 
 // handle logic
 const readAllUser = async () => {
     try {
-        const dataString = await fsRead();
+        const dataString = await fs.promises.readFile('./text.txt', 'utf8', );
+        console.log(dataString);
         const dataObj = JSON.parse(dataString);
         return dataObj;
     } catch (e) {

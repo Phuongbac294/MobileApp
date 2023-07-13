@@ -1,14 +1,15 @@
 const exp = require('express')
 const path = require('path')
 const userRouter = exp.Router();
-const handler = require('../handler/handle_user')
+const read = require('../handler/read.js');
+const handler = require('../handler/handle_user.js')
 
 userRouter.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname,'../database/user.json'));
 });
 
 userRouter.get('/add', async (req, res) => {
-    const data = await handler.readAllUser();
+    const data = await read('user.json');
     res.status(200).json(data);
 });
 userRouter.get('/:userId', async (req, res) =>{
@@ -43,6 +44,7 @@ userRouter.patch('/:userId', async (req, res) => {
 })
 userRouter.delete('/:userId', async (req, res) => {
     const newData = req.body; 
+
     await handler.deleteUser(req.params.userId, newData);
     res.status(200).send('Deleted user')
 })
