@@ -1,0 +1,12 @@
+[
+    {
+        "name": "teacher A",
+        "age": 25,
+        "id": "tca"
+    },
+    {
+        "name": "teacher B",
+        "age": 28,
+        "id": "tc2"
+    }
+]

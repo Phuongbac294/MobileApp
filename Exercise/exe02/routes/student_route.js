@@ -3,8 +3,9 @@ const path = require('path');
 
 const studentRoute = exp.Router();
 
+
 studentRoute.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname,'../database/student.json'));
+    res.sendFile(path.join(__dirname,'../database/student.json'));
 });
 
 
