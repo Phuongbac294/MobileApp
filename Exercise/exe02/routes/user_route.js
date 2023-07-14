@@ -2,7 +2,10 @@ const exp = require('express')
 const path = require('path')
 const userRouter = exp.Router();
 const read = require('../handler/read.js');
-const handler = require('../handler/handle_user.js')
+const create = require('../handler/create.js');
+const getId = require('../handler/getId.js');
+const handler = require('../handler/handle_user.js');
+
 
 userRouter.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname,'../database/user.json'));
@@ -12,10 +15,19 @@ userRouter.get('/add', async (req, res) => {
     const data = await read('user.json');
     res.status(200).json(data);
 });
-userRouter.get('/:userId', async (req, res) =>{
-    const userFounded = await handler.getUserById(req.params.userId)
-    if (userFounded) {
-        res.status(200).json(userFounded);
+
+userRouter.post('/add', async (req, res) => {
+    const data = req.body;
+    create('user.json', data);
+    const newData = await read('user.json');
+    res.status(200).json(newData);
+})
+
+userRouter.get('/:userId', (req, res) =>{
+    const id = req.params.userId;
+    const user = getId( id);
+    if (user) {
+        res.status(200).json(user);
     } else {
         res.status(404).json({ message: 'User not found' });
     }
