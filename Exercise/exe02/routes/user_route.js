@@ -4,7 +4,8 @@ const userRouter = exp.Router();
 const read = require('../handler/read.js');
 const create = require('../handler/create.js');
 const getId = require('../handler/getId.js');
-const handler = require('../handler/handle_user.js');
+const update = require('../handler/update.js');
+const deleter = require('../handler/delete.js');
 
 
 userRouter.get('/', (req, res) => {
@@ -25,7 +26,8 @@ userRouter.post('/add', async (req, res) => {
 
 userRouter.get('/:userId', (req, res) =>{
     const id = req.params.userId;
-    const user = getId( id);
+    console.log(id);
+    const user = getId('user.json', id);
     if (user) {
         res.status(200).json(user);
     } else {
@@ -33,32 +35,24 @@ userRouter.get('/:userId', (req, res) =>{
     }
 })
 
-userRouter.get('/name/:userName', async (req, res) =>{
-    const userFounded = await handler.getUserByName(req.params.userName)
-    if (userFounded) {
-        res.status(200).json(userFounded);
-    } else {
-        res.status(404).json({ message: 'User not found' });
-    }
+
+userRouter.patch('/update/:userId', async (req, res) =>{
+    const id = await req.params.userId;
+    console.log('id', id);
+    const newData = await req.body;
+    console.log(('newData', newData));
+    await update('user.json', id, newData)
+    const updateData = await read('user.json')
+    res.status(200).json(updateData);
 })
 
-userRouter.post('/', async (req, res) => {
-    const newDataBody = req.body; // user mới dc lấy từ body
-    console.log(req.body);
-    await handler.createUser(newDataBody);
-    const data = await handler.readAllUser();
-    res.status(200).json(data);
-})
-userRouter.patch('/:userId', async (req, res) => {
-    const newDataUpdate = req.body; // user mới dc lấy từ body
-    await handler.updateUser(req.params.userId, newDataUpdate);
-    res.status(200).send('Updated user')
-})
-userRouter.delete('/:userId', async (req, res) => {
-    const newData = req.body; 
 
-    await handler.deleteUser(req.params.userId, newData);
-    res.status(200).send('Deleted user')
+userRouter.delete('/delete/:userId', async (req, res) => {
+    const id = req.params.userId;
+    // console.log('id', id);
+    await deleter('user.json', id);
+    const data = await read('user.json')
+    res.status(200).json(data)
 })
 
 module.exports = userRouter;
