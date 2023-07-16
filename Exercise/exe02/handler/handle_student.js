@@ -1,5 +1,6 @@
 const fs = require('fs')
 const path = require('path');
+const generateId = () => new Date().valueOf();
 
 const read = async (file) => await fs.promises.readFile(path.join(__dirname, `../database/${file}`), 'utf8');
 const write = async (file, data) => await fs.promises.writeFile(path.join(__dirname, `../database/${file}`), data);
@@ -16,9 +17,11 @@ const readFile = async (file) => {
 
 const createFile = async (file, data) => {
     const oldData = await readFile(file)
-    const newData = oldData.push(data);
-    const newDataObj = JSON.parse(newData);
-    await write(file, newDataObj);
+    data.id = generateId();
+    oldData.push(data);
+    const newDataConvertToString = JSON.stringify(oldData);
+    await write(file, newDataConvertToString);
+    return;
 }
 
 const getFileById = async (file, id) => {

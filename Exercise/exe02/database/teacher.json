@@ -1,12 +1,1 @@
-[
-    {
-        "name": "teacher A",
-        "age": 25,
-        "id": "tca"
-    },
-    {
-        "name": "teacher C",
-        "age": 30,
-        "id": 1689409567858
-    }
-]
+[{"name":"teacher A","age":25,"id":"tca"},{"name":"teacher C","age":30,"id":1689409567858},{"name":"teacher D","age":28,"id":1689476993222}]

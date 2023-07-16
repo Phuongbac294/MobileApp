@@ -3,9 +3,10 @@ const path = require('path');
 const teacherRouter = exp.Router();
 const handle = require('../handler/handle_teacher.js');
 
-teacherRouter.get('/', async (req, res) => {
-    const data = await handle.readAll();
-    res.status(200).send(data)
+teacherRouter.get('/', 
+    async (req, res) => {
+        const data = await handle.readAll();
+        res.status(200).send(data)
 });
 
 teacherRouter.post('/add', async (req, res) => {
