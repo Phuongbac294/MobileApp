@@ -1,10 +1,1 @@
-[
-    {
-        "name": "student 1",
-        "age": 23
-    },
-    {
-        "name": "student 2",
-        "age": 24
-    }
-]
+[{"name":"student tow","age":28,"id":234,"email":"userfour@gmai.com"},{"name":"student four","email":"userfour@gmai.com","age":28,"id":1689604631372}]

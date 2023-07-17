@@ -10,6 +10,7 @@ const create = async (file, data) => {
     oldData.push(data);
     const newData = JSON.stringify(oldData);
     await fs.promises.writeFile(path.resolve(__dirname, `../database/${file}`), newData);
+    return 1;
 }
 
 module.exports = create;

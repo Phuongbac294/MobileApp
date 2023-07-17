@@ -19,7 +19,7 @@ userRouter.get('/add', async (req, res) => {
 
 userRouter.post('/add', async (req, res) => {
     const data = req.body;
-    create('user.json', data);
+    await create('user.json', data);
     const newData = await read('user.json');
     res.status(200).json(newData);
 })
@@ -39,9 +39,7 @@ userRouter.get('/:userId', async (req, res) =>{
 
 userRouter.patch('/update/:userId', async (req, res) =>{
     const id = await parseInt(req.params.userId);
-    console.log('id', id);
     const newData = await req.body;
-    console.log(('newData', newData));
     await update('user.json', id, newData)
     const updateData = await read('user.json')
     res.status(200).json(updateData);
@@ -50,7 +48,6 @@ userRouter.patch('/update/:userId', async (req, res) =>{
 
 userRouter.delete('/delete/:userId', async (req, res) => {
     const id = await parseInt(req.params.userId);
-    // console.log('id', id);
     await deleter('user.json', id);
     const data = await read('user.json')
     res.status(200).json(data)

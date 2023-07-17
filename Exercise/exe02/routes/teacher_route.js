@@ -10,14 +10,7 @@ teacherRouter.get('/', async (req, res) => {
 });
 
 teacherRouter.post('/add', 
-    (req, res, next) => {
-        const error = validate(createUserSchema, req.body);
-        if (error) {
-            res.status(400).json(error.details)
-        }
-        next();
-    },
-    async (req, res) => {
+      async (req, res) => {
         const data = await req.body;
         console.log('data', data);
         await handle.createTeacher(data);
