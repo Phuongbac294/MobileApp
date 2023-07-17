@@ -1,12 +1,1 @@
-[
-    {
-        "name": "teacher A",
-        "age": 25,
-        "id": "tca"
-    },
-    {
-        "name": "teacher C",
-        "age": 30,
-        "id": 1689409567858
-    }
-]
+[{"name":"teacher A","age":40,"id":123,"description":"learn react natie"},{"name":"teacher C","age":30,"id":1689409567858},{"name":"teacher B","age":33,"id":1689558236387},{"name":"teacher A","age":40,"description":"learn react natie","id":1689589435998},{"name":"teacher A","age":20,"description":"learn react natie","id":1689589512912},{"name":"teacher A","age":20,"description":"learn react natie","id":1689589606606}]

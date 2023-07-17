@@ -10,7 +10,7 @@ const update = async (file, id, newDataUpdate) => {
     if (index !== -1) {
         const data = oldData[index];
         oldData[index] = {...data, ...newDataUpdate}
-        const newDataConvertString = json.stringify(oldSata, null, 4);
+        const newDataConvertString = JSON.stringify(oldData, null, 4);
         await fs.promises.writeFile(path.join(__dirname, `../database/${file}`), newDataConvertString);
         console.log('newDataConvertString', newDataConvertString);
         return 1;

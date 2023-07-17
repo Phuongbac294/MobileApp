@@ -10,7 +10,7 @@ const deleter = async (file, id) => {
     if (newData.length === data.length) {
         return 0;
     } else {
-        const newDataConvertString = json.stringify(newData)
+        const newDataConvertString = JSON.stringify(newData)
         await fs.promises.writeFile(path.join(__dirname, `../database/${file}`), newDataConvertString);
         return 1;
     }

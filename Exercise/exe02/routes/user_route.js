@@ -24,20 +24,21 @@ userRouter.post('/add', async (req, res) => {
     res.status(200).json(newData);
 })
 
-userRouter.get('/:userId', (req, res) =>{
-    const id = req.params.userId;
-    console.log(id);
-    const user = getId('user.json', id);
+userRouter.get('/:userId', async (req, res) =>{
+    const id = await parseInt(req.params.userId);
+    // console.log(id);
+    const user = await getId('user.json', id);
+    // console.log('user.json', user);
     if (user) {
-        res.status(200).json(user);
+        res.status(200).json(user);        
     } else {
-        res.status(404).json({ message: 'User not found' });
+        res.status(404).json({ message: 'User not found' });        
     }
 })
 
 
 userRouter.patch('/update/:userId', async (req, res) =>{
-    const id = await req.params.userId;
+    const id = await parseInt(req.params.userId);
     console.log('id', id);
     const newData = await req.body;
     console.log(('newData', newData));
@@ -48,7 +49,7 @@ userRouter.patch('/update/:userId', async (req, res) =>{
 
 
 userRouter.delete('/delete/:userId', async (req, res) => {
-    const id = req.params.userId;
+    const id = await parseInt(req.params.userId);
     // console.log('id', id);
     await deleter('user.json', id);
     const data = await read('user.json')

@@ -22,7 +22,6 @@ const createTeacher = async (userData) => {
     const oldData = await readAll();
     userData.id = generateId();
     oldData.push(userData);
-    console.log('olddata', oldData);
     const newDataConvertToString = JSON.stringify(oldData);
     await fsWrite(newDataConvertToString);
     return;
