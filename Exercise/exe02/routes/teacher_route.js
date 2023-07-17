@@ -4,11 +4,7 @@ const teacherRouter = exp.Router();
 const handle = require('../handler/handle_teacher.js');
 const {validate, createUserSchema} = require('../validate/validate.js');
 
-teacherRouter.get('/', 
-    async (req, //Obj chưa thống tin từ Client
-         res, // Obj chứa chức năng phản hồi Server từ cl
-          next) => { //funtion gọi để chuyển logic sang cb sau đó
-            // thưc hiện các logi code rồi chuyến hàm next
+teacherRouter.get('/', async (req, res) => {
     const data = await handle.readAll();
     res.status(200).send(data)
 });

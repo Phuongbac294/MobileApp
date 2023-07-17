@@ -1,22 +1,15 @@
 const exp = require('express')
 // const path = require('path');
 const handlerFile = require('../handler/handle_file.js');
-const { join } = require('path');
 
 const studentRoute = exp.Router();
 
 
-studentRoute.get('/', async (req, res) => {
-    const data = await handlerFile.readFile('student.json')
+studentRoute.get('/', (req, res) => {
+    const data = handlerFile.readFile('student.json')
     res.status(200).send(data);
 });
 
-studentRoute.post('/add', async (req, res) => {
-    const newData = await req.body;
-    await handlerFile.createFile('student.json', newData)
-    const newStudent = await handlerFile.readFile('student.json');
-    res.status(200).send(newStudent)
-})
 
 studentRoute.get('/:studentId', async (req, res) => {
     const id = await parseInt(req.params.studentId);
