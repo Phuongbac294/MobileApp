@@ -1,0 +1,28 @@
+.footer {
+    position: fixed;
+    width: 90vw;
+    height: 100px;
+    display: flex;
+    background-color: rgb(56, 62, 67);
+    bottom: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.footer_list {
+    margin: 0;
+    text-align: left;
+}
+.footer_item {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0;
+    padding-left: 10px;
+    list-style: none;
+}
+
+.footer_list-item {
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #da09ed;
+}
