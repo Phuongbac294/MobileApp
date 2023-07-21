@@ -60,6 +60,21 @@
     font-weight: 600;
 }
 .statistical_list th {
-    border:solid rgb(192, 94, 210);
-    
+    border:solid rgb(192, 94, 210);    
+}
+
+.borden_green {
+   border-color:  green;
+}
+
+.statistical_list.borden_green th  {
+    border-color:  green;    
+}
+
+.borden_blue {
+    border-color:  blue;
+ }
+
+ .statistical_list.borden_blue th  {
+    border-color:  blue;    
 }
