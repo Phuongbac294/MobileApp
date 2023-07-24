@@ -1,13 +1,79 @@
 import React from 'react';
-import {StyleSheet, View, Text, Button} from 'react-native'
+import {StyleSheet, View, Text, Button, TouchableOpacity, TextInput, FlatList, Item, SafeAreaView} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+// import SafeAreaView from 'react-native-safe-area-view';
+// import { SafeAreaProvider } from 'react-native-safe-area-context';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
+const Input = ({label = "Username"}) => {
+  return (
+    <View style={{paddingHorizontal: 10, marginTop: 20}}>
+      <Text style = {{marginRight:20}}>{label}</Text>
+      <View style = {{borderBottomColor: '#555', borderBottomWidth: 1, flexDirection: 'row'}}>
+        <Icon name="user" color="#eee" size={30} />
+        <TextInput style = {{paddingHorizontal: 100, paddingVertical: 5, }} placeholder='Enter User Name'/>
+      </View>
+    </View>
+  )
+}
+
+function Login() {
+  return (
+    <View style={styles.areaView}>
+      <View style={styles.menu}>
+        <Text style={styles.textlogin}>LOGIN</Text>
+      </View>
+      <View style={styles.container}>
+        <View style={styles.loginIcon}>
+          <TouchableOpacity style={styles.icon} onPress={() => {}}>
+            <Text style={styles.textlogin}>G</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.icon} onPress={() => {}}>
+            <Text style={styles.textlogin}>F</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.loginInput}>
+          <Input/>
+          <Input label='password'/>
+        </View>
+        <View style={styles.loginButon}>
+          <Button style = {styles.styleButton} title='LOGIN' onClick={()=>{}}/>
+        </View>
+        <View style={styles.loginText}>
+          <Text>Anphu Engenery</Text>
+        </View>
+      </View>
+    </View>
+  )
+}
+const DATA = [
+  {id: '123456', title: 'first item',},
+  {id: '678910', title: 'two item',},
+  {id: '234567', title: 'three item',}
+]
+
+
+const ListView = () => {
+  return (
+    // <SafeAreaProvider>
+      {/* <SafeAreaView style = {{flex:1,}}> */}
+        <FlatList
+          data={DATA}
+          renderItem={({item}) => <Item title={item.title} />}
+          keyExtractor={item => item.id}
+        />
+      {/* </SafeAreaView> */}
+    // </SafeAreaProvider>
+  )
+}
 
 function Home() {
   const navigation = useNavigation();
@@ -73,14 +139,16 @@ function SettingsStackScreen() {
 export default function App() {
   return (
     <NavigationContainer>
-      {/* <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} options={{ title: 'My home', headerStyle: {backgroundColor: '#f4511e', headerTitleStyle: {fontWeight: 'bold',}}, }}/>
-        <Stack.Screen name="Detail" component={Detail} />
-      </Stack.Navigator> */}
-      <Tab.Navigator >
+      <Stack.Navigator>
+        {/* <Stack.Screen name="Login" component={Login} /> */}
+        <Stack.Screen name="Data" component={ListView} />
+        {/* <Stack.Screen name="Home" component={Home} options={{ title: 'My home', headerStyle: {backgroundColor: '#f4511e', headerTitleStyle: {fontWeight: 'bold',}}, }}/>
+        <Stack.Screen name="Detail" component={Detail} /> */}
+      </Stack.Navigator>
+      {/* <Tab.Navigator >
         <Tab.Screen name="Home" component={HomeStackScreen} options={{ tabBarBadge: 3 }}/>
         <Tab.Screen name="Settings" component={SettingsStackScreen} />
-      </Tab.Navigator>
+      </Tab.Navigator> */}
     </NavigationContainer>
   );
 }
@@ -88,13 +156,18 @@ export default function App() {
 
 // Style CSS
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  areaView: {flex: 1, backgroundColor: '#2002c4'},
+  menu: {flex: 1, color: 'black', alignItems: 'center',    justifyContent: 'center',
+},
+  container: {flex: 6, backgroundColor: '#fff', alignItems: 'center',    justifyContent: 'center', borderTopRightRadius: 30, borderTopLeftRadius: 30,
   },
-  // textStyle: {fontSize: 19,fontWeight: 'bold', textAlign: 'center', color: 'red'},
-  textStyle: { flex: 1, alignItems: 'center', justifyContent: 'center' }
+  loginIcon: {flex: 1, flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' },
+  loginButon: {flex: 1, alignItems: 'center', justifyContent: 'center',},
+  loginInput: {flex: 3, alignItems: 'center', justifyContent: 'center'},
+  loginText: {flex: 1, alignItems: 'center', justifyContent: 'center'},
+  textlogin: {fontSize: 20,fontWeight: 'bold', textAlign: 'center', color: 'red'},
+  textStyle: { flex: 1, alignItems: 'center', justifyContent: 'center' },
+  icon: {width: 100, height: 50, backgroundColor: '#ddd', justifyContent: 'center', alignContent: 'center', borderRadius: 25, marginLeft:20, marginRight:20},
+  styleButton: {width: 100, height: 50, borderRadius: 25, marginLeft:20, marginRight:20},
 });
 
