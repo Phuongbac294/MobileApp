@@ -77,8 +77,9 @@ userRouter.get('/userlogin/current',
     (req, res) =>{      
         try {
             const usertoken = req.headers.authorization;
-            console.log(usertoken);
+            // console.log(usertoken);
             const [_, token] = usertoken.split(' '); // [-, token] chỉ lấy giá trị thứ 2 trong dãy bẳng cách tách chuỗi.
+            console.log(token);
             const userData = jwt.verify(token, privatekey);                
             req.user = userData;
             next();
