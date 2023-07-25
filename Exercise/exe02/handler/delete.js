@@ -4,9 +4,9 @@ const path = require('path');
 
 const deleter = async (file, id) => {
     const data = await read(file);
-    console.log('id: ' , id);
+    // console.log('id: ' , id);
     const newData = data.filter(user => user.id !== id);
-    console.log('newData', newData);
+    // console.log('newData', newData);
     if (newData.length === data.length) {
         return 0;
     } else {

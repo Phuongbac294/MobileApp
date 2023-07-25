@@ -9,6 +9,7 @@ const update = require('../handler/update.js');
 const deleter = require('../handler/delete.js');
 const login = require('../handler/login.js');
 const {userValidate, validatehandler, createUserSchema, loginUserSchema, loginValidate, currentValidate} = require('../validate/validate.js');
+const { getById } = require('../handler/handle_teacher.js');
 
 const privatekey = 'awfdgsjghseighgagalghgagl';
 
@@ -36,7 +37,7 @@ userRouter.get('/:userId', async (req, res) =>{
     if (user) {
         res.status(200).json(user);        
     } else {
-        res.status(404).json({ message: 'User not found' });        
+        res.status(404).json({ message: 'User not found id' });        
     }
 })
 
@@ -67,27 +68,28 @@ userRouter.post('/login',
             res.json(token);
             return 1;
         } else {
-            res.status(403).send({message:"user not found"});
+            res.status(403).send({message:"user not found login"});
         }
         
 })
 
-userRouter.get('/current',
-    (req, res, next) =>{
+userRouter.get('/userlogin/current',
+    (req, res) =>{      
         try {
-            console.log('token:', req.headers.authorization);
-            const [_, token] = req.headers.authorization.split(' '); // [-, token] chỉ lấy giá trị thứ 2 trong dãy bẳng cách tách chuỗi.
-            const userData = jwt.verify(token, privateKey);
-            console.log('userData', userData);
-            res.json(userData);
+            const usertoken = req.headers.authorization;
+            console.log(usertoken);
+            const [_, token] = usertoken.split(' '); // [-, token] chỉ lấy giá trị thứ 2 trong dãy bẳng cách tách chuỗi.
+            const userData = jwt.verify(token, privatekey);                
+            req.user = userData;
             next();
         } catch (err) {
-            res.status(402).json({message: " invalid token", error: err})
-        }
+            res.status(403).json({message:"user not found token"})            
+        }      
     },
     async (req, res) => {
-        const data = await read('user.json');
+        const data = await getById(req.user.id)
         res.status(200).json(data);
-});
+}
+);
 
 module.exports = userRouter;
