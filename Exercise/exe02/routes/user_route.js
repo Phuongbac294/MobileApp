@@ -13,6 +13,20 @@ const { getById } = require('../handler/handle_teacher.js');
 
 const privatekey = 'awfdgsjghseighgagalghgagl';
 
+const authMiddleware =  (req, res) =>{      
+    try {
+        const usertoken = req.headers.authorization;
+        // console.log(usertoken);
+        const [_, token] = usertoken.split(' '); // [-, token] chỉ lấy giá trị thứ 2 trong dãy bẳng cách tách chuỗi.
+        console.log(token);
+        const userData = jwt.verify(token, privatekey);                
+        req.user = userData;
+        next();
+    } catch (err) {
+        res.status(403).json({message:"user not found token"})            
+    }      
+}
+
 userRouter.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname,'../database/user.json'));
 });
@@ -73,20 +87,7 @@ userRouter.post('/login',
         
 })
 
-userRouter.get('/userlogin/current',
-    (req, res) =>{      
-        try {
-            const usertoken = req.headers.authorization;
-            // console.log(usertoken);
-            const [_, token] = usertoken.split(' '); // [-, token] chỉ lấy giá trị thứ 2 trong dãy bẳng cách tách chuỗi.
-            console.log(token);
-            const userData = jwt.verify(token, privatekey);                
-            req.user = userData;
-            next();
-        } catch (err) {
-            res.status(403).json({message:"user not found token"})            
-        }      
-    },
+userRouter.get('/userlogin/current', authMiddleware,    
     async (req, res) => {
         const data = await getById(req.user.id)
         res.status(200).json(data);

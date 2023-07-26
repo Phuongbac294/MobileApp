@@ -13,12 +13,14 @@ app.use(cors());
 const teacherRoute = require('./routes/teacher_route.js');
 const userRoute = require('./routes/user_route.js');
 const studentRoute = require('./routes/student_route.js');
+const mongodbRoute = require('./routes/mongodb_route.js');
 
 
 // uses route
 app.use('/student', studentRoute);
 app.use('/teacher', teacherRoute);
 app.use('/user', userRoute);
+app.use('/mongodb', mongodbRoute);
 
 
 // home
