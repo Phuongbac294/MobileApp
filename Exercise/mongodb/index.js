@@ -2,7 +2,7 @@ const exp = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 // router
-const router = require('./router/routers')
+const router = require('./router/index')
 
 var app = exp();
 
@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 // config cors 
-app.use(cors());
+app.use(cors()); // chạy dự án thực tế sẽ tắt đi
 
 app.use('/', router);
 //code logic

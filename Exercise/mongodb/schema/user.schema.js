@@ -5,12 +5,19 @@ const { Schema } = mongoose;
 // ? primary server
 const UserSchema = new Schema({
     name: {type: String, // String is shorthand for {type: String}
-        required: true},
+        required: true,
+        index: true,
+        unique: true,},
     age: Number,
     password: String, 
-    email: String,    
-    birthday: { type: Date, default: null },  
+    email: String,
+    phone: Number,     
+    birthday: { type: Date, 
+        default: null },  
     // comment: { type: mongoose.ObjectId, ref: 'Comment' },  
+    company: {name: String, 
+        position: String,
+        power: String},
 }, {timestamps: true});
 
 const User = mongoose.model('User', UserSchema);
