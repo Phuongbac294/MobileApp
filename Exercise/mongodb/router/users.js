@@ -1,5 +1,5 @@
 const exp = require('express')
-// const {userController} = require('../controller');
+const {userController} = require('../controller/index');
 
 const userRoutes = exp.Router();
 
@@ -7,7 +7,7 @@ userRoutes.get('/', (req, res) => {
     res.send("Welcome to User")
 })
 
-// // userRoutes.get('/', userController.createUser);
+userRoutes.post('/', userController.createUser);
 // userRoutes.post('/', (req, res)=>{});
 // userRoutes.patch('/', (req, res)=>{});
 // userRoutes.update('/', (req, res)=>{});

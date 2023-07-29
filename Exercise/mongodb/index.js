@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 // router
 const router = require('./router/index')
+const {connect} = require('./model/connect');
 
 var app = exp();
 
@@ -14,6 +15,8 @@ app.use(bodyParser.json());
 app.use(cors()); // chạy dự án thực tế sẽ tắt đi
 
 app.use('/', router);
+
+connect();
 //code logic
 
 
