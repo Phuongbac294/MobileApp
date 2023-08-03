@@ -17,13 +17,6 @@ app.use(cors()); // chạy dự án thực tế sẽ tắt đi
 app.use('/', router);
 
 connect();
-//code logic
-
-
-// mongodb connect
-// mongoose.connect('mongodb+srv://Web63_atlas:Web63atlas@cluster0.wntgsqq.mongodb.net/')
-
-
 
 // const CommentSchema = new Schema({
 //     content: {type: String, required: true},

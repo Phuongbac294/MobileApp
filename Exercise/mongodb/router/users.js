@@ -8,10 +8,15 @@ userRoutes.get('/', (req, res) => {
 })
 
 userRoutes.post('/', userController.createUser);
-// userRoutes.post('/', (req, res)=>{});
-// userRoutes.patch('/', (req, res)=>{});
-// userRoutes.update('/', (req, res)=>{});
-// userRoutes.delete('/', (req, res)=>{});
+userRouter.get('/', userController.getUsers);
+userRouter.get('/current',
+    userController.getCurrentUser
+);
+userRouter.patch('/',
+    middlewareValidate(updateUserSchema),
+    userController.updateUser
+);
+userRouter.delete('/', userController.deleteUser);
 
 
 module.exports = userRoutes;

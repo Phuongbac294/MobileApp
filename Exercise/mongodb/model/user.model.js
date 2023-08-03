@@ -1,7 +1,7 @@
 const User = require('../schema/user.schema');
 const baseModel = require('./base.model');
-const moment = require('moment');
-const handlePassword = require('../helpers/handle_password.js');
+// const moment = require('moment');
+const handlePassword = require('../handle/handle_password.js');
 
 class UserModel extends baseModel {
     async login({ name, password }) {
@@ -14,10 +14,9 @@ class UserModel extends baseModel {
             throw new Error('Invalid password');
         }
     }
+    
     async query(query = {}, sort) {
         try {
-            
-
             const { limit, skip } = query;
             console.log('limit, skip', limit, skip);
             const rex = new RegExp(query.name, 'i');

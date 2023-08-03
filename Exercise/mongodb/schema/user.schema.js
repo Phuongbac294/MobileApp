@@ -11,7 +11,7 @@ const UserSchema = new Schema({
     age: Number,
     password: String, 
     email: String,
-    phone: Number,     
+    phone: String,     
     birthday: { type: Date, 
         default: null },  
     // comment: { type: mongoose.ObjectId, ref: 'Comment' },  
