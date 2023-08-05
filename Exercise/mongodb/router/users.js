@@ -1,22 +1,23 @@
 const exp = require('express')
 const {userController} = require('../controller/index');
 
-const userRoutes = exp.Router();
+const userRouters = exp.Router();
 
-userRoutes.get('/', (req, res) => {
+userRouters.get('/', (req, res) => {
     res.send("Welcome to User")
 })
+userRouters.get('/all', userController.getAll)
 
-userRoutes.post('/', userController.createUser);
-userRouter.get('/', userController.getUsers);
-userRouter.get('/current',
+userRouters.post('/', userController.createUser);
+userRouters.get('/get', userController.getUsers);
+userRouters.get('/current',
     userController.getCurrentUser
 );
-userRouter.patch('/',
-    middlewareValidate(updateUserSchema),
-    userController.updateUser
-);
-userRouter.delete('/', userController.deleteUser);
+// userRouters.patch('/',
+//     middlewareValidate(updateUserSchema),
+//     userController.updateUser
+// );
+userRouters.delete('/', userController.deleteUser);
 
 
-module.exports = userRoutes;
+module.exports = userRouters;

@@ -3,6 +3,16 @@ class BaseModel {
         this.model = model
     }
 
+    async get() {
+        try {
+            const data = await this.model.find()
+            return data
+        } catch (error) {
+            // console.log(error)
+            throw new Error(error)
+        }
+    }
+
     async create(body, opts = {}) {
         try {
             const data = await this.model.insertMany(body, opts)

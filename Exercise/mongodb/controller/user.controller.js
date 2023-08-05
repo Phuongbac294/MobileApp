@@ -5,7 +5,11 @@ var jwt = require('jsonwebtoken');
 
 const UserModel = require('../model/user.model');
 const handlePassword = require('../handle/handle_password');
-// const userModel = require('../model/user.model');
+
+const getAll = async (req, res) => {
+    const data = await UserModel.get()
+    res.json(data);
+}
 
 const createUser = async (req, res) => {
     try {
@@ -97,4 +101,5 @@ module.exports = {
     updateUser,
     deleteUser,
     getUsers,
+    getAll,
 }
