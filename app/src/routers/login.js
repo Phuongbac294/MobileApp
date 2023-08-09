@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, Button, TouchableOpacity, TextInput} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './css';
+import { useNavigation } from '@react-navigation/native';
 
 const Input = ({label = "Username"}) => {
   return (
@@ -16,9 +17,8 @@ const Input = ({label = "Username"}) => {
 }
 
 function Login() {
-  
-
-  return (
+  const navigation = useNavigation()
+    return (
     <View style={styles.areaView}>
       <View style={styles.menu}>
         <Text style={styles.textlogin}>LOGIN</Text>
@@ -39,8 +39,10 @@ function Login() {
         <View style={styles.loginButon}>
           <Button style = {styles.styleButton} title='LOGIN' onClick={()=>{}}/>
         </View>
-        <View style={styles.loginText}>
-          <Text>Anphu Engenery</Text>
+        <View style={styles.loginText}>        
+          <Button title="Go to total" onPress={() => {
+            navigation.navigate('Total')
+          }} />
         </View>
       </View>
     </View>
