@@ -4,9 +4,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import styles from '../css/css';
 import btn from '../css/btn';
 import container from '../css/container';
+import LoginLesson from './login';
 
 
 
@@ -27,6 +27,7 @@ const Detail = () => {
           <Button style={btn.Button} title="Change Header" onPress={() => {
                     navigation.setOptions({title: 'Updated'})
                 }} />
+          
         </View>
     </View>
     )
@@ -37,6 +38,7 @@ function HomeStackScreen() {
     <HomeStack.Navigator>
       <HomeStack.Screen name="Home" component={Home} />
       <HomeStack.Screen name="Details" component={Detail} />
+      <HomeStack.Screen name="lesson_login" component={LoginLesson} />
     </HomeStack.Navigator>
   );
 }
@@ -49,6 +51,9 @@ function Home() {
         <Button style={btn.Button} title="Go to detail" onPress={() => {
                   navigation.navigate('Details', {user: 'Alice'});
               }} />
+        <Button style={btn.Button} title="Go to lesson" onPress={() => {
+                    navigation.navigate('lesson_login')
+                }} />
       </View>
     );
 }

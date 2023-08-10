@@ -10,6 +10,7 @@ import AppRouter from './src/routers/appRouter';
 // import Total from './src/routers/total';
 import styles from './src/routers/css';
 import HomeStackScreen from './src/lesson/home';
+import AppMobi from './src/appLpg/appmobi/appmobi';
 
 
 
@@ -27,6 +28,9 @@ function HomeApp() {
       <Button title="Go to App" onPress={() => {
                 navigation.navigate('App');
             }} />
+      <Button title="Go to AppMobi" onPress={() => {
+                navigation.navigate('AppMobi');
+            }} />
     </View>
   );
 }
@@ -38,6 +42,7 @@ export default function App() {
         <Stack.Screen name="HomeApp" component={HomeApp} />
         <Stack.Screen name="App" component={AppRouter} />          
         <Stack.Screen name="Lesson" component={HomeStackScreen} />
+        <Stack.Screen name="AppMobi" component={AppMobi} />
       </Stack.Navigator>
     </NavigationContainer>
   );

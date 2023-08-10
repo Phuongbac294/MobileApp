@@ -1,5 +1,6 @@
 import {View, Text, StyleSheet, Button} from 'react-native';
 import React from 'react';
+import styles from '../css/css';
 // import { 
 //   Text, // span
 //   View, // div
