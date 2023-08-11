@@ -8,7 +8,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {Image} from 'react-native'
 import styles from '../css/styles';
 import stylesText from '../css/text';
-import btn from '../css/btn';
+
 
 import LoginAppMobi from './login';
 
