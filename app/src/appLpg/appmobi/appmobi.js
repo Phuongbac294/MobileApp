@@ -11,6 +11,7 @@ import stylesText from '../css/text';
 
 
 import LoginAppMobi from './login';
+import Register from './register';
 
 const AppMobiStack = createNativeStackNavigator();
 
@@ -48,7 +49,8 @@ function AppMobi() {
     return (
         <AppMobiStack.Navigator>
             <AppMobiStack.Screen name="AppMobi" component={Mobi} />
-            <AppMobiStack.Screen name="LoginAppMobi" component={LoginAppMobi} />
+            <AppMobiStack.Screen name="LoginAppMobi" component={LoginAppMobi}/>
+            <AppMobiStack.Screen name="Register" component={Register}/>
         </AppMobiStack.Navigator>
     )
 }

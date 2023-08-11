@@ -12,17 +12,40 @@ import input from '../css/input';
 import btn from '../css/btn';
 
 function LoginAppMobi() {
+    const navigation = useNavigation();
     return(
         <View style={styles.app}>
-            <Image style = {styles.img}
-                            source={require('../img/logo-AP-removebg-preview.png')} />
-            <Text style={stylesText.h1}>Welcome AnPhu </Text>
-            <Text style={stylesText.p1}>Sign to continue</Text>
-            <TextInput style={input.input} placeholder="UserEmail" />
-            <TextInput style={input.input} placeholder="Password" />
-            <Text style={stylesText.h3}>Forgot Password</Text>
-            <Button style={btn.btn} title="LOGIN" onPress={() => {}} />
-            <Text style={stylesText.p}>Don't have account? <Text style={stylesText.p}>create a new account</Text></Text>
+            <View style={{...styles.view2, justifyContent: "flex-end"}}>
+                <View style = {styles.avata}>
+                    <Image style = {styles.img}
+                                source={require('../img/logo-AP-removebg-preview.png')} />
+                </View>
+            </View>
+            <View style={styles.view1}>
+                <Text style={stylesText.h1}>Welcome AnPhu </Text>
+                <Text style={{...stylesText.p,color: '#808080'}}>Sign to continue</Text>
+            </View>
+            <View style={styles.view3}>
+                <TextInput style={input.input} placeholder="UserEmail" />
+                <TextInput style={input.input} placeholder="Password" />
+            </View>
+            <View style={{...styles.view1, alignSelf: "flex-end"}}>
+                <TouchableOpacity>
+                    <Text style={{...stylesText.p, color: '#FF00FF', paddingRight:0}}>Forgot Password?</Text>
+                </TouchableOpacity>
+            </View>
+            <View style={styles.view1}>
+                <TouchableOpacity style={{...btn.btn,}}>
+                    <Text style={{fontSize:20, fontWeight: "600"}}>LOGIN</Text>
+                </TouchableOpacity>
+            </View>
+            <View style={{...styles.view2, justifyContent:"flex-start"}}>
+                <Text style={{...stylesText.p}}>Don't have account? 
+                    <TouchableOpacity onPress={() => {navigation.navigate('Register')}}>
+                        <Text style={{...stylesText.p,color: "#A0522D",}}> create a new account</Text>
+                    </TouchableOpacity>
+                </Text>
+            </View>   
         </View>
     )
 }
