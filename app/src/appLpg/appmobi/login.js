@@ -35,7 +35,7 @@ function LoginAppMobi() {
                 </TouchableOpacity>
             </View>
             <View style={styles.view1}>
-                <TouchableOpacity style={{...btn.btn,}}>
+                <TouchableOpacity style={{...btn.btn,}} onPress={() => {navigation.navigate('HomeAppMobi')}}>
                     <Text style={{fontSize:20, fontWeight: "600"}}>LOGIN</Text>
                 </TouchableOpacity>
             </View>
