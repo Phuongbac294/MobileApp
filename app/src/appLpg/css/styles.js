@@ -11,6 +11,7 @@ const styles = StyleSheet.create ({
     view1: {flex: 1, justifyContent: "center", alignItems: "center", padding: 5},
     view2: {flex: 2, justifyContent: "center", alignItems: "center", padding: 5},
     view3: {flex: 3, justifyContent: "center", alignItems: "center", padding: 5},
+    viewlogo: {flex: 1, justifyContent: "center", alignItems: "center"}
 })
 
 export default styles;
