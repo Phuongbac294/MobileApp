@@ -4,7 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import {Image} from 'react-native'
+import {Image} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import styles from '../css/styles';
 import stylesText from '../css/text';
@@ -13,6 +14,18 @@ import btn from '../css/btn';
 
 function LoginAppMobi() {
     const navigation = useNavigation();
+    const [email, setEmail] = React.useState("");
+    const [password, setPassword] = React.useState("");
+    const [secureTextEntry, setSecureTextEntry] = React.useState(true);
+
+    const LoginHandler = async () => {
+        try {
+            const payload = { email: email, password: password}
+
+            
+        }
+        catch {}
+    }
     return(
         <View style={styles.app}>
             <View style={{...styles.view2, justifyContent: "flex-end"}}>
@@ -26,8 +39,24 @@ function LoginAppMobi() {
                 <Text style={{...stylesText.p,color: '#808080'}}>Sign to continue</Text>
             </View>
             <View style={styles.view3}>
-                <TextInput style={input.input} placeholder="UserEmail" />
-                <TextInput style={input.input} placeholder="Password" />
+                <View style={{...input.input, flexDirection:"row", justifyContent: "flex-start"}}>
+                    <Icon name="user" color="#1E90FF" size={30} />
+                    <TextInput style={{fontSize:25, marginLeft: 15}} placeholder="Email" value={email} onChangeText={e=> setEmail(e)}/>
+                </View>
+                <View style={{...input.input, flexDirection:"row", justifyContent: "flex-start"}}>
+                    <Icon name="lock" color="#1E90FF" size={30} />
+                    <TextInput style={{fontSize:25, marginLeft: 15, flex: 1}} 
+                        placeholder="Password"
+                        secureTextEntry={secureTextEntry}
+                        value={password}
+                        onChangeText={e=> setPassword(e)} />
+                    <TouchableOpacity onPress = {() => setSecureTextEntry(!secureTextEntry)}>
+                        {secureTextEntry ?
+                            <Icon name="eye-slash" color="#1E90FF" size={30} /> :
+                            <Icon name="eye" color="#1E90FF" size={30} />
+                        }
+                    </TouchableOpacity>
+                </View>
             </View>
             <View style={{...styles.view1, alignSelf: "flex-end"}}>
                 <TouchableOpacity>
@@ -35,7 +64,7 @@ function LoginAppMobi() {
                 </TouchableOpacity>
             </View>
             <View style={styles.view1}>
-                <TouchableOpacity style={{...btn.btn,}} onPress={() => {navigation.navigate('HomeAppMobi')}}>
+                <TouchableOpacity style={{...btn.btn,}} onPress={() => LoginHandler() }>
                     <Text style={{fontSize:20, fontWeight: "600"}}>LOGIN</Text>
                 </TouchableOpacity>
             </View>

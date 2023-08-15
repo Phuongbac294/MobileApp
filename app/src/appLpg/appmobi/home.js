@@ -30,14 +30,11 @@ function HomeAppMobi() {
                     <Icon name="bell" color="#1E90FF" size={30} /> 
                 </TouchableOpacity>
             </View>
-            <HomeAppMobiStack.Navigator>
-                <HomeAppMobiStack.Screen name="TotalAppMobi" component={TotalAppMobi}/>
-            </HomeAppMobiStack.Navigator>
             <View style={styles.view10}>
-                <TextInput style={input.input} placeholder="UserEmail" />
-                <TextInput style={input.input} placeholder="Password" />
+                <HomeAppMobiStack.Navigator>
+                    <HomeAppMobiStack.Screen name="TotalAppMobi" component={TotalAppMobi}/>
+                </HomeAppMobiStack.Navigator>
             </View>
-            
             <View style={{...styles.view1, flexDirection:'row', padding:0}}>                 
                 <TouchableOpacity style={{flex:1, alignItems:"center"}} onPress={() => {menu.navigate('TotalAppMobi')}}>
                     <Text style={{...stylesText.p1}}>Total</Text>

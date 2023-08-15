@@ -27,9 +27,20 @@ function RegisterAppMobi() {
                 <Text style={{...stylesText.p,color: '#808080'}}>Create a new account</Text>
             </View>
             <View style={styles.view3}>
-                <TextInput style={input.input} placeholder="Email" />
-                <TextInput style={input.input} placeholder="Password" />
-                <TextInput style={input.input} placeholder="ConfirmPassword" />
+                <View style={{...input.input, flexDirection:"row", justifyContent: "flex-start"}}>
+                    <Icon name="user" color="#1E90FF" size={30} />
+                    <TextInput style={{fontSize:25, marginLeft: 15}} placeholder="UserEmail" />
+                </View>
+                <View style={{...input.input, flexDirection:"row", justifyContent: "flex-start"}}>
+                    <Icon name="lock" color="#1E90FF" size={30} />
+                    <TextInput style={{fontSize:25, marginLeft: 15, flex: 1}} placeholder="Password" />
+                    <Icon name="eye-slash" color="#1E90FF" size={30} />
+                </View>
+                <View style={{...input.input, flexDirection:"row", justifyContent: "flex-start"}}>
+                    <Icon name="lock" color="#1E90FF" size={30} />
+                    <TextInput style={{fontSize:25, marginLeft: 15, flex: 1}} placeholder="ConfirmPassword" />
+                    <Icon name="eye-slash" color="#1E90FF" size={30} />
+                </View>
             </View>            
             <View style={styles.view2}>
                 <TouchableOpacity style={{...btn.btn,}}>
