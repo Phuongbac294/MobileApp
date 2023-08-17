@@ -7,6 +7,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import btn from '../css/btn';
 import container from '../css/container';
 import LoginLesson from './login';
+import Lesson_Lesson from './lesson';
+import FlatListLesson from './flatlist';
 
 
 
@@ -18,7 +20,7 @@ const Detail = () => {
   const navigation = useNavigation();
   const route = useRoute();
     return (
-      <View style={container.container}>
+      <SafeAreaView style={container.container}>
         <Text>Details Screen</Text>
         <Text> User: {route.params.user}</Text>
         <View style={container.row}>
@@ -29,7 +31,7 @@ const Detail = () => {
                 }} />
           
         </View>
-    </View>
+    </SafeAreaView>
     )
 }
 
@@ -39,6 +41,8 @@ function HomeStackScreen() {
       <HomeStack.Screen name="Home" component={Home} />
       <HomeStack.Screen name="Details" component={Detail} />
       <HomeStack.Screen name="lesson_login" component={LoginLesson} />
+      <HomeStack.Screen name="lesson_lesson" component={Lesson_Lesson} />
+      <HomeStack.Screen name="lesson_flatlist" component={FlatListLesson} />
     </HomeStack.Navigator>
   );
 }
@@ -51,9 +55,15 @@ function Home() {
         <Button style={btn.Button} title="Go to detail" onPress={() => {
                   navigation.navigate('Details', {user: 'Alice'});
               }} />
-        <Button style={btn.Button} title="Go to lesson" onPress={() => {
+        <Button style={btn.Button} title="Go to Login lesson" onPress={() => {
                     navigation.navigate('lesson_login')
                 }} />
+        <Button style={btn.Button} title="Go to lesson" onPress={() => {
+            navigation.navigate('lesson_lesson')
+        }} />
+        <Button style={btn.Button} title="Go to Flatlist" onPress={() => {
+            navigation.navigate('lesson_flatlist')
+        }} />
       </View>
     );
 }

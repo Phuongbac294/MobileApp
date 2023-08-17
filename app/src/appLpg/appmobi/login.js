@@ -21,7 +21,7 @@ function LoginAppMobi() {
     const LoginHandler = async () => {
         try {
             const payload = { email: email, password: password}
-
+            navigation.navigate("HomeAppMobi")
             
         }
         catch {}

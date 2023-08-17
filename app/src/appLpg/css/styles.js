@@ -11,8 +11,12 @@ const styles = StyleSheet.create ({
     view1: {flex: 1, justifyContent: "center", alignItems: "center", padding: 5},
     view2: {flex: 2, justifyContent: "center", alignItems: "center", padding: 5},
     view3: {flex: 3, justifyContent: "center", alignItems: "center", padding: 5},
-    view10: {flex: 10, justifyContent: "center", alignItems: "center", backgroundColor:"#ffffff",},
-    viewlogo: {flex: 1, justifyContent: "center", alignItems: "center"}
+    view10: {flex: 10, backgroundColor:"#ffffff", width:420},
+    viewlogo: {flex: 1, justifyContent: "center", alignItems: "center"},
+    row: {height:50, flexDirection: "row", justifyContent: "space-between", alignItems:"center"},
+    row1: {flex: 1, flexDirection: "row", justifyContent: "center", alignItems:"center"},
+    row2: {flex: 2, flexDirection: "row", justifyContent: "center", alignItems:"center"},
+    row3: {flex: 3, flexDirection: "row", justifyContent: "center", alignItems:"center"},
 })
 
 export default styles;
