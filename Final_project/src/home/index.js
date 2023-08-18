@@ -4,12 +4,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 
-
-
-
 import Login from '../login/login';
 import Register from '../login/register';
 import Total from './total';
+import Tank from './tank';
 
 const Tab = createBottomTabNavigator();
 
@@ -23,7 +21,10 @@ export default function Home() {
                 
                 if (route.name === 'Total') {
                     iconName = 'hotel'
-                } else if (route.name === 'Login') {
+                } else if (route.name === 'Tank') {
+                    iconName = 'user'
+                } else 
+                if (route.name === 'Login') {
                     iconName = 'user'
                 } else if (route.name === 'Register') {
                     iconName = 'registered'
@@ -36,6 +37,7 @@ export default function Home() {
                 tabBarInactiveTintColor: 'gray',
             })}
           >
+            <Tab.Screen name="Tank" component={Tank} />
             <Tab.Screen name="Total" component={Total} />
             <Tab.Screen name="Login" component={Login} />
             <Tab.Screen name="Register" component={Register} />

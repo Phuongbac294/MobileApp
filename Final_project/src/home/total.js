@@ -1,6 +1,6 @@
-import React from "react";
-import {StyleSheet, View, Text, Button, TouchableOpacity, TextInput, FlatList, Item, SafeAreaView, ScrollView} from 'react-native';
-import { useNavigation } from "@react-navigation/native";
+import React from 'react';
+import {View, Text, TouchableOpacity, FlatList, ScrollView} from 'react-native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import styles from '../css/index';
@@ -31,7 +31,7 @@ function Total() {
     const navigation = useNavigation();
 
     return(
-        <SafeAreaView >
+        <View >
                       
             <View style={{...styles.row, backgroundColor: "#FFFFCC"}}>
                 <View style={{ margin:10, }}>
@@ -42,7 +42,7 @@ function Total() {
                 </TouchableOpacity>
             </View> 
             
-            <View styles={{...styles.col, height: 1000}}>
+            <View >
                 <View style={{...styles.row_1, height: 30}}>
                     <View style={{...styles.col,}}>
                         <Text style={{...styles.text_h_20}}>Ngày</Text>
@@ -70,9 +70,8 @@ function Total() {
                         keyExtractor={item => item.date}
                     />
                 </View>
-            </View>
-
-        </SafeAreaView>
+             </View>
+        </View>
     )
 }
 
