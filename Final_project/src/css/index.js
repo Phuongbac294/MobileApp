@@ -6,6 +6,8 @@ const styles = StyleSheet.create({
                     headerTitleStyle: {fontWeight: 'bold',}},
 
     container: {flex: 1, backgroundColor: '#fff', alignItems: 'center'},
+
+    
     col: {alignItems: "flex-start",justifyContent: 'center', height: 'auto'},
     col_1: {flex: 1, alignItems: 'center', justifyContent: 'center'},
     col_2: {flex: 2, alignItems: 'center',justifyContent: 'center'},
