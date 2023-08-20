@@ -1,11 +1,43 @@
 import { StyleSheet } from "react-native";
+import { Button, TouchableOpacity } from "react-native";
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { useNavigation,} from '@react-navigation/native';
+
+// const menu = () => {
+//     const navigation = useNavigation();
+//     return navigation.navigate('Demo')
+
+// }
 
 const styles = StyleSheet.create({
-    screenOptions:{headerStyle: {backgroundColor: '#EE82EE',}, 
-                    headerTintColor: '#fff', 
-                    headerTitleStyle: {fontWeight: 'bold',}},
+    screenOptions:  {
+                        headerStyle: {backgroundColor: '#EE82EE',}, 
+                        headerTintColor: '#fff', 
+                        headerTitleStyle: {fontWeight: 'bold', justifyContent: 'center'},
+                        headerLeft: () => (
+                                        <TouchableOpacity
+                                        onPress={() => alert('Menu List')}
+                                        title="Info"
+                                        color="#fff"
+                                        >
+                                            <Icon name="bars" color="#000000" size={30} />
+                                        </TouchableOpacity>),
+                        headerRight: () => (
+                                        <TouchableOpacity
+                                        onPress={() => alert('Cập nhật dữ liệu mới')}
+                                        title="Info"
+                                        color="#fff"
+                                        >
+                                            <Icon name="bell" color="#000000" size={30} />
+                                        </TouchableOpacity>),
+                        headerTitleAlign: 'center',
+                    },
+                    
 
     container: {flex: 1, backgroundColor: '#fff', alignItems: 'center'},
+    contai: {alignItems: 'center', justifyContent: 'center'},
+
+    itemList: {height: 45, width: 100, alignItems: "center", justifyContent: 'center'},
 
     
     col: {alignItems: "flex-start",justifyContent: 'center', height: 'auto'},
