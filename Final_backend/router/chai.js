@@ -1,9 +1,8 @@
 const express = require('express');
+const controler = require('../model/chai.model')
 
 const chai = express.Router();
 
-chai.get('/', (req, res) => {
-    res.send('Welcome to the chai!');
-})
+chai.get('/', controler.get())
 
 module.exports = chai;

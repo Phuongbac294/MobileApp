@@ -2,7 +2,7 @@ const express = require('express');
 
 const tank = express.Router();
 const tankData = require('../database/tank.json')
-const {Controler} = require('../controler/tank.controler');
+const Controler = require('../controler/tank.controler');
 
 
 tank.get('/', (req, res) => {
