@@ -5,6 +5,9 @@ const user = require('./user');
 const tank = require('./tank');
 const chai = require('./chai');
 
+const { userController } = require('../controler/userController');
+const { authMiddleware } = require('../middleware/auth');
+
 const router = express.Router();
 
 router.use('/users', user);
