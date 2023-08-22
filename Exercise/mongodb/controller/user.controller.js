@@ -69,7 +69,7 @@ const login = async (req, res) => {
 }
 
 const getCurrentUser = async (req, res) => {
-    const user = await userModel.findOne({ _id: req.user._id }, 'name _id birthday');
+    const user = await UserModel.findOne({ _id: req.user._id }, 'name _id birthday');
     res.status(200).json(user)
 }
 
@@ -79,12 +79,12 @@ const updateUser = async (req, res) => {
         ...req.body,
         birthday: moment(req.body.birthday, "DD/MM/YYYY")
     }
-    await userModel.findOneAndUpdate({ _id: req.user._id }, dataUpdate);
+    await UserModel.findOneAndUpdate({ _id: req.user._id }, dataUpdate);
     const data = await UserModel.findOne({ _id: req.user._id }, '-password -__v');
     res.status(200).json(data)
 }
 const deleteUser = async (req, res) => {
-    const result = await userModel.delete({ _id: req.user._id });
+    const result = await UserModel.delete({ _id: req.user._id });
     res.json(result)
 }
 
