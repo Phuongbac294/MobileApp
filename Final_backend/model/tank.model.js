@@ -1,9 +1,11 @@
-const Tanks = require('../database/tank.schema');
+const TankSchema= require('../database/tank.schema');
 const BaseModel = require('./base.model');
 
-
 class TankModel extends BaseModel {
-
+    constructor() {
+        super();
+        this.init('tanks', TankSchema)
+    }
 }
 
-module.exports = TankModel;
+module.exports = new TankModel();

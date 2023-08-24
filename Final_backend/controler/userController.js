@@ -1,10 +1,15 @@
-const privateKey = 'ajkfasghasgfangwaighaJ';
+// const privateKey = 'asdfkasbdfjhasvdfjhasvdfjasdf';
 
 var jwt = require('jsonwebtoken');
-const momnet = require('moment'); // thư viện dùng để thao tác xử lý datetime
+// const moment = require('moment');
 
 const UserModel = require('../model/user.model');
 const handlePassword = require('../helpers/handle_password');
+
+const getAll = async (req, res) => {
+    const data = await UserModel.get()
+    res.json(data);
+}
 
 const createUser = async (req, res) => {
     try {
@@ -13,7 +18,7 @@ const createUser = async (req, res) => {
         console.log({
             ...rest,
             password: hashPassword
-        }, 'password')
+        }, 'ddddd')
         const user = await UserModel.create({
             ...rest,
             password: hashPassword
@@ -29,13 +34,14 @@ const createUser = async (req, res) => {
         })
     }
 }
+
 const login = async (req, res) => {
     try {
-        const { email, password } = req.body;
-        const user = await UserModel.login({ email, password });
+        const { name, password } = req.body;
+        const user = await UserModel.login({ name, password });
         const dataToken = {
             _id: user._id,
-            email: user.email,
+            name: user.name,
         }
         console.log(user)
         if (!user) {
@@ -95,4 +101,5 @@ module.exports = {
     updateUser,
     deleteUser,
     getUsers,
+    getAll,
 }

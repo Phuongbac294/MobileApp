@@ -1,132 +1,41 @@
+const mongoose = require("mongoose");
 
 class BaseModel {
-    constructor(model) {
-        this.model = model
-    }
+  constructor() {}
 
-    async create(body, opts = {}) {
-        try {
-            const data = await this.model.insertMany(body, opts)
-            return data
-        } catch (error) {
-            // console.log(error)
-            throw new Error(error)
-        }
-    }
+  init(name, schema) {
+    this.model = mongoose.model(name, schema);
+  }
 
-    async createOne(body, opts = {}) {
-        try {
-            const data = await this.model.insertMany(body, opts)
-            return data[0]
-        } catch (error) {
-            // console.log(error)
-            throw new Error(error)
-        }
-    }
+  //get all
+  getAll() {
+    let query = this.model.find();
+    return query.exec();
+  }
+  
+  //R = Research
+  get(id) {
+    let query = this.model.findById(id);
+    return query.exec();
+  }
 
-    async updateOne(cond, query, opts={new: true }) {
-        try {
-            const data = await this.model.updateOne(cond, query, opts).exec()
-            return data
-        } catch (error) {
-            throw new Error(error)
-        }
-    }
-    async updateMany(cond, query, opts={new: true }) {
-        try {
-            const data = await this.model.updateMany(cond, query, opts).exec()
-            return data
-        } catch (error) {
-            throw new Error(error)
-        }
-    }
+  //C = Create
+  create(data) {
+    let result = this.model.create(data);
+    return result;
+  }
 
-    async findOneAndUpdate(cond, query, opts={new: true }) {
-        try {
-            const data = await this.model.findOneAndUpdate(cond, query, opts).exec()
-            return data
-        } catch (error) {
-            throw new Error(error)
-        }
-    }
-    async findAndModify(query, update, sort = {createdAt: -1}, upsert = true) {
-        try {
-            const data = await this.model.findAndModify({
-                query: query,
-                sort: sort,
-                update: update,
-                upsert: upsert
-            }).exec()
-            return data
-        } catch (error) {
-            throw new Error(error)
-        }
-    }
+  //U = Update
+  update(id, data) {
+    let result = this.model.updateOne({ _id: id }, data);
+    return result;
+  }
 
-    async delete(cond, opts = {}) {
-        try {
-            const data = await this.model.deleteOne(cond, opts).exec()
-            return data
-        } catch (error) {
-            throw new Error(error)
-        }
-    }
-
-    async deleteMany(cond, opts = {}) {
-        try {
-            const data = await this.model.deleteMany(cond, opts).exec()
-            return data
-        } catch (error) {
-            throw new Error(error)
-        }
-    }
-
-    async findMany(cond, page = 1, limit = 20, sort = { createdAt: -1 }, opts = {}, populate='', select='') {
-        try {
-            limit = parseInt(limit)
-            page = parseInt(page)
-            let skip = limit * (page - 1)
-            const data = await this.model.find(cond, opts).skip(skip).limit(limit).populate(populate).sort(sort).select(select).exec()
-            if(data==null){
-                return []
-            }
-            return data
-        } catch (error) {
-            throw new Error(error)
-        }
-    }
-
-    async findManyAndSelect(cond, select, page = 1, limit = 20, sort = -1) {
-        try {
-            limit = parseInt(limit)
-            page = parseInt(page)
-            let skip = limit * (page - 1)
-            const data = await this.model.find(cond).skip(skip).limit(limit).select(select).sort({createdAt: sort}).exec()
-            if(data==null){
-                return []
-            }
-            return data
-        } catch (error) {
-            throw new Error(error)
-        }
-    }
-
-    async findOne(cond,  opts = {}, populate='') {
-        try {
-            const data = await this.model.findOne(cond, opts).populate(populate)
-            return data
-        } catch (error) {
-            throw Error(error)
-        }
-    }
-
-    async total(cond = {}) {
-        try {
-            return await this.model.countDocuments(cond);
-        } catch (error) {
-            throw new Error(error)
-        }
-    }
+  //D = Delete
+  delete(id) {
+    let result = this.model.deleteOne({ _id: id });
+    return result;
+  }
 }
 
-module.exports = BaseModel
+module.exports = BaseModel;

@@ -7,7 +7,7 @@ const { connect } = require('./database/connect')
 
 const app = express();
 
-app.use(bodyParser.urlencoded({extended: flase}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cors());
 

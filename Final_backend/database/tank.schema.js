@@ -16,6 +16,5 @@ const TankSchema = new Schema ({
     MW: Number,
 })
 
-const Tanks = mongoose.model('tanks', TankSchema);
 
-module.exports = Tanks;
+module.exports = TankSchema;
