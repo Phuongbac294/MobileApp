@@ -18,7 +18,6 @@ const comparePassword = function (plainPass, hashword) {
     return bcrypt.compare(plainPass, hashword);
 };
 
-
 module.exports = {
     cryptPassword,
     comparePassword

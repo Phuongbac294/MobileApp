@@ -1,7 +1,7 @@
 const express = require('express');
 const {userController} = require('../controler/index');
-// const { authMiddleware} = require('../middleware/auth');
-// const { middlewareValidate, updateUserSchema } = require('../middleware/validate');
+const { authMiddleware} = require('../middleware/auth');
+const { middlewareValidate, updateUserSchema } = require('../middleware/validate');
 const model = require('../model/user.model')
 
 
@@ -25,5 +25,6 @@ user.patch('/',
     userController.updateUser
 );
 user.delete('/', userController.deleteUser);
+user.get('/login', userController.login)
 
 module.exports = user;

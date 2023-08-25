@@ -20,6 +20,7 @@ class UserModel extends BaseModel {
         if (isPasswordMatch) {
             return user;
         } else {
+            
             throw new Error('Invalid password');
         }
     }

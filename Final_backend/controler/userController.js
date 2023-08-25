@@ -1,7 +1,7 @@
-// const privateKey = 'asdfkasbdfjhasvdfjhasvdfjasdf';
+const privateKey = 'asdfkasbdfjhasvdfjhasvdfjasdf';
 
 var jwt = require('jsonwebtoken');
-// const moment = require('moment');
+const moment = require('moment');
 
 const UserModel = require('../model/user.model');
 const handlePassword = require('../helpers/handle_password');
@@ -52,7 +52,8 @@ const login = async (req, res) => {
         }
         const token = jwt.sign(
             dataToken, // data to be signed
-            process.env.KEY_JWT, // secret key
+            privateKey,
+            // process.env.KEY_JWT, // secret key
             { expiresIn: '1h' },// expiration time
         )
         res.status(200).json({

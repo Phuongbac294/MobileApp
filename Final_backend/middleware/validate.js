@@ -1,7 +1,5 @@
 const Joi = require('joi');
 
-// 
-
 const middlewareValidate = (schema) => {
     return (
         req, // object chứa thông tin từ client 
