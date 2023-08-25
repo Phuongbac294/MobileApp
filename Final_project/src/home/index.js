@@ -10,6 +10,8 @@ import styles from '../css/index';
 import Login from '../login/login';
 import Register from '../login/register';
 import Total from './total';
+import Tank from './tank';
+import Chai from './chai';
 
 const Tab = createBottomTabNavigator();
 
@@ -22,11 +24,11 @@ export default function Home() {
                 let iconName;
                 
                 if (route.name === 'Total') {
-                    iconName = 'hotel'
+                    iconName = 'filter'
                 } else if (route.name === 'Login') {
                     iconName = 'user'
-                } else if (route.name === 'Register') {
-                    iconName = 'registered'
+                } else if (route.name === 'Chai') {
+                    iconName = 'truck'
                 } else if (route.name === 'Tank') {
                     iconName = 'cloud'
                 }
@@ -38,11 +40,13 @@ export default function Home() {
                 },
                 tabBarActiveTintColor: '#00FFFF',
                 tabBarInactiveTintColor: 'gray',
+                headerShown:'flase',
+                
             })}
           >
             <Tab.Screen name="Total" component={Total} />
-            <Tab.Screen name="Login" component={Login} />
-            <Tab.Screen name="Register" component={Register} />
+            <Tab.Screen name="Tank" component={Tank} />
+            <Tab.Screen name="Chai" component={Chai} />
         </Tab.Navigator>
     )
 

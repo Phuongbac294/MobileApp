@@ -64,7 +64,7 @@ function Total() {
                         data={data}
                         renderItem={({item}) => <ItemChai date={item.date} tanks={item.tanks} LPG12={item.LPG12} LPG45={item.LPG45}/>}
                         keyExtractor={item => item.date}
-                    />==
+                    />
                 </ScrollView>
             </View>
         </View>

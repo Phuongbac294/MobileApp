@@ -26,7 +26,7 @@ const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export default function App() {
-  // const navigation = useNavigation()
+ 
   return (
     <AppComponent.Provider value={{}}>
       <NavigationContainer>
@@ -34,42 +34,12 @@ export default function App() {
           <Stack.Screen name="Demo" component={Demo} screenOptions={{headerShown: 'flase'}}/>
           <Stack.Screen name="LoginIndex" component={LoginIndex} /> 
           <Stack.Screen name="Home" component={Home} options={{ title: 'Anphu Engery' }}/> 
-          <Stack.Screen name="Login" component={Login} screenOptions={{headerShown: 'flase'}} /> 
-          <Stack.Screen name="Register" component={Register} screenOptions={{headerShown: 'flase'}}/> 
-          <Stack.Screen name="Total" component={Total} screenOptions={{headerShown: 'flase'}}/>  
-          <Stack.Screen name="Tank" component={Tank} screenOptions={{headerShown: 'flase'}}/> 
-          <Stack.Screen name="Chai" component={Chai} screenOptions={{headerShown: 'flase'}}/> 
-        </Stack.Navigator>
-        {/* <Tab.Navigator 
-            screenOptions={({ route }) => ({
-                tabBarIcon: ({ focused, color, size }) => {
-                let iconName;
-                
-                if (route.name === 'Chai') {
-                    iconName = 'filter'
-                } else if (route.name === 'Tong') {
-                    iconName = 'user'
-                } else if (route.name === 'Register') {
-                    iconName = 'registered'
-                } else if (route.name === 'Tank') {
-                    iconName = 'cloud'
-                }
-                else if (route.name === 'Setting') {
-                    iconName = 'gear'
-                }
-                // You can return any component that you like here!
-                return <Icon name={iconName} size={size} color={color} />;
-                },
-                tabBarActiveTintColor: '#00FFFF',
-                tabBarInactiveTintColor: 'gray',
-            })}
-          >
-            <Tab.Screen name="Tong" component={Total} />
-            <Tab.Screen name="Chai" component={Chai} />
-            <Tab.Screen name="Tank" component={Tank} />
-            <Tab.Screen name="Login" component={Login} />
-            <Tab.Screen name="Register" component={Register} />
-        </Tab.Navigator> */}
+          <Stack.Screen name="Login" component={Login}/> 
+          <Stack.Screen name="Register" component={Register}/> 
+          <Stack.Screen name="Total" component={Total}/>  
+          <Stack.Screen name="Tank" component={Tank}/> 
+          <Stack.Screen name="Chai" component={Chai}/> 
+        </Stack.Navigator>        
       </NavigationContainer>
     </AppComponent.Provider>
   );

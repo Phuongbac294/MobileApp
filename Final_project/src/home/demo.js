@@ -18,10 +18,7 @@ export default function Demo() {
             <Text style={{fontSize: 30}}>Demo</Text>
             <Button title="Go to Login" onPress={() => {
 				navigation.navigate('Login')
-			}} /> 
-            <Button title="Go to APP" onPress={() => {
-				navigation.navigate('Home')
-			}} />       
+			}} />        
         </SafeAreaView>
     )
 }

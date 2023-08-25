@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
                                             <Icon name="bell" color="#000000" size={30} />
                                         </TouchableOpacity>),
                         headerTitleAlign: 'center',
+                        headerShown:'flase',
                     },
                     
 

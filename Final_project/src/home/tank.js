@@ -14,6 +14,10 @@ import dataTank from '../database/data/tank.json';
 const newdata = dataTank;
 const data = newdata.reverse();
 
+const HandlerTank = () => {
+
+}
+
 const ItemTank = ({date, tank1, tank2, MW}) => (
     <View style={{...styles.row, }}>
         <View style={{...styles.itemList}}>
@@ -31,6 +35,54 @@ const ItemTank = ({date, tank1, tank2, MW}) => (
     </View>
   );
 
+const CreateTank = () => {
+    return (
+        <View style={{...styles.col,}}>
+            <View style={{...styles.row,}}>
+                <View style={{...styles.col_1,}}>
+                    <Text style={{...styles.text_p_15}}>Date</Text>
+                </View>
+                <View style={{...styles.input, }}>                    
+                    <TextInput style={{...styles.input_text_25}} placeholder="Email@gmail.com" value={email} onChangeText={e=> setEmail(e)}/>
+                </View>
+            </View>
+
+            <View style={{...styles.col,}}>
+                <Text style={{...styles.text_h_20}}>Bồn số 1</Text>
+                <View style={{...styles.row,}}>
+                    <View style={{...styles.col_1,}}>
+                        <Text style={{...styles.text_p_15}}>Mức bồn</Text>
+                    </View>
+                    <View style={{...styles.input, }}>                    
+                        <TextInput style={{...styles.input_text_25}} value={level} onChangeText={e=> setEmail(e)}/>
+                    </View>
+                </View>
+                <View style={{...styles.row,}}>
+                    <View style={{...styles.col_1,}}>
+                        <Text style={{...styles.text_p_15}}>Áp suất bồn</Text>
+                    </View>
+                    <View style={{...styles.input, }}>                    
+                        <TextInput style={{...styles.input_text_25}} value={pre} onChangeText={e=> setEmail(e)}/>
+                    </View>
+                </View>
+                <View style={{...styles.row,}}>
+                    <View style={{...styles.col_1,}}>
+                        <Text style={{...styles.text_p_15}}>Nhiệt độ bồn</Text>
+                    </View>
+                    <View style={{...styles.input, }}>                    
+                        <TextInput style={{...styles.input_text_25}} value={temp} onChangeText={e=> setEmail(e)}/>
+                    </View>
+                </View>
+            </View>
+
+            <View style={styles.col_1}>
+                <TouchableOpacity style={{...styles.btn,}} onPress={() => HandlerTank() }>
+                    <Text style={{fontSize:20, fontWeight: "600"}}>Cập Nhật</Text>
+                </TouchableOpacity>
+            </View>
+        </View>
+    )
+}
 
 function Tank() {
     const navigation = useNavigation();

@@ -12,6 +12,10 @@ import dataTank from '../database/data/chai.json';
 const newdata = dataTank;
 const data = newdata.reverse();
 
+const HandlerChai = () => {
+    
+}
+
 const ItemChai = ({date, LPG12, LPG45, MW}) => (
     <View style={{...styles.row, }}>
         <View style={{...styles.itemList}}>
@@ -29,11 +33,48 @@ const ItemChai = ({date, LPG12, LPG45, MW}) => (
     </View>
   );
 
+  const CreateChai = () => {
+    return (
+        <View style={{...styles.col,}}>
+            <View style={{...styles.row,}}>
+                <View style={{...styles.col_1,}}>
+                    <Text style={{...styles.text_p_15}}>Date</Text>
+                </View>
+                <View style={{...styles.input, }}>                    
+                    <TextInput style={{...styles.input_text_25}} placeholder="Email@gmail.com" value={email} onChangeText={e=> setEmail(e)}/>
+                </View>
+            </View>
+               
+            <View style={{...styles.row,}}>
+                <View style={{...styles.col_1,}}>
+                    <Text style={{...styles.text_p_15}}>Chai 12 kg</Text>
+                </View>
+                <View style={{...styles.input, }}>                    
+                    <TextInput style={{...styles.input_text_25}} value={level} onChangeText={e=> setEmail(e)}/>
+                </View>
+            </View>
+            <View style={{...styles.row,}}>
+                <View style={{...styles.col_1,}}>
+                    <Text style={{...styles.text_p_15}}>Chai 45 kg</Text>
+                </View>
+                <View style={{...styles.input, }}>                    
+                    <TextInput style={{...styles.input_text_25}} value={pre} onChangeText={e=> setEmail(e)}/>
+                </View>
+            </View>
+
+            <View style={styles.col_1}>
+                <TouchableOpacity style={{...styles.btn,}} onPress={() => HandlerChai() }>
+                    <Text style={{fontSize:20, fontWeight: "600"}}>Cập Nhật</Text>
+                </TouchableOpacity>
+            </View>
+        </View>
+    )
+}
 
 function Chai() {
     const navigation = useNavigation();
     return(
-        <View >
+        <SafeAreaView >
             <View >
                 <View style={{...styles.row, height: 50, backgroundColor: "#FFFFCC"}}>
                     <View style={{...styles.col_1, alignItems: "flex-start", paddingLeft: 10}}>
@@ -67,7 +108,7 @@ function Chai() {
                     />
                 </ScrollView>
             </View>
-        </View>
+        </SafeAreaView>
     )
 }
 
