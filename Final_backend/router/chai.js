@@ -1,5 +1,6 @@
 const express = require('express');
-const model = require('../model/chai.model')
+// const model = require('../model/chai.model')
+const controller = require('../controler/chaiController')
 
 const chai = express.Router();
 
@@ -7,12 +8,8 @@ chai.get('/', (req, res) => {
     res.send('Welcome to the Chai!');
 })
 
-chai.get('/danhsach', (req, res) => {});
-chai.post('/create', async (req, res) => {
-    let data = await req.body;
-    let query = await model.create(data);
-    res.json(query);
-});
+chai.get('/add', controller.getChai);
+chai.post('/create',controller.createChai);
 
 // chai.patch('/update', (req, res) => {});
 

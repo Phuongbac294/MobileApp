@@ -44,7 +44,7 @@ export default function Home() {
                 
             })}
           >
-            <Tab.Screen name="Total" component={Total} />
+            <Tab.Screen name="Total" component={Total} options={{ tabBarBadge: 3 }} />
             <Tab.Screen name="Tank" component={Tank} />
             <Tab.Screen name="Chai" component={Chai} />
         </Tab.Navigator>

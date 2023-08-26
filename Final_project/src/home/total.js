@@ -32,6 +32,11 @@ const ItemChai = ({date, tanks, LPG12, LPG45}) => (
 
 function Total() {
     const navigation = useNavigation();
+    const [refreshing, setRefreshing] = React.useState(false);
+    const onRefresh = () => {
+        setRefreshing(true);
+        setTimeout(() => setRefreshing(false),1000)
+    }
     return(
         <View >
             <View >
@@ -59,11 +64,13 @@ function Total() {
                         <Text style={{fontSize: 20, fontWeight: "600"}}>Bình 45</Text>
                     </View>               
                 </View>
-                <ScrollView >
+                <ScrollView style={{...styles.scrollView_h570}}>
                     <FlatList
                         data={data}
                         renderItem={({item}) => <ItemChai date={item.date} tanks={item.tanks} LPG12={item.LPG12} LPG45={item.LPG45}/>}
                         keyExtractor={item => item.date}
+                        refreshing={refreshing}
+                        onRefresh={onRefresh}
                     />
                 </ScrollView>
             </View>

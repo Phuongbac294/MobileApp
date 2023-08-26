@@ -6,11 +6,15 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {Image} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles from '../css/index';
-import dataTank from '../database/data/chai.json';
-const newdata = dataTank;
-const data = newdata.reverse();
+// import dataTank from '../database/data/chai.json';
+// const newdata = dataTank;
+const newdata = await axios.get('https://localhost:3000/chai/add');
+console.log('data', newdata);
+const data = newdata
 
 const HandlerChai = () => {
     
@@ -100,7 +104,7 @@ function Chai() {
                         <Text style={{fontSize: 20, fontWeight: "600"}}>Tổng</Text>
                     </View>               
                 </View>
-                <ScrollView >
+                <ScrollView style={{...styles.scrollView_h570}} >
                     <FlatList
                         data={data}
                         renderItem={({item}) => <ItemChai date={item.date} LPG12={item.LPG12} LPG45={item.LPG45} MW={item.MW}/>}

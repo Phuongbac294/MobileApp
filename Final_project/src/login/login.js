@@ -1,9 +1,11 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, TextInput, Image, SafeAreaView} from 'react-native';
+import {View, Text, TouchableOpacity, TextInput, Image, SafeAreaView, Alert} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {useNavigation, } from '@react-navigation/native';
+import axios from 'axios';
 
 import styles from '../css/index';
+
   
   function Login() {
     const navigation = useNavigation();
@@ -13,11 +15,16 @@ import styles from '../css/index';
 
     const LoginHandler = async () => {
         try {
-            const payload = { email: email, password: password}
+            // const payload = { email: email, password: password}
+            // console.log('payload', payload);
+            // const {data} = await axios.post('https://localhost:3000/users/login', payload)
+            // Alert.alert(data.message)
+            // AsyncStorage.setItem('token', data.token);
+            // AsyncStorage.setItem('user', data.user);
             navigation.navigate("Home")
             
         }
-        catch {}
+        catch (err) {console.log(err);}
     }
     return(
         <SafeAreaView style={{...styles.container}}>

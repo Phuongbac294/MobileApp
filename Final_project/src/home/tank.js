@@ -113,7 +113,7 @@ function Tank() {
                         <Text style={{fontSize: 20, fontWeight: "600"}}>Tổng</Text>
                     </View>               
                 </View>
-                <ScrollView >
+                <ScrollView style={{...styles.scrollView_h570}}>
                     <FlatList
                         data={data}
                         renderItem={({item}) => <ItemTank date={item.date} tank1={item.tank1} tank2={item.tank2} MW={item.MW}/>}

@@ -2,6 +2,10 @@ import { StyleSheet } from "react-native";
 import { Button, TouchableOpacity } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useNavigation,} from '@react-navigation/native';
+import {Dimensions} from 'react-native';
+
+const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
 
 // const menu = () => {
 //     const navigation = useNavigation();
@@ -62,7 +66,9 @@ const styles = StyleSheet.create({
     input: {width: 350, height: 50, alignItems: 'center', justifyContent: 'center', backgroundColor: "#DCDCDC", marginBottom: 5, marginTop: 5, fontSize: 25, borderRadius: 5, padding: 7, flexDirection:"row", justifyContent:"flex-start"},
     input_text_25: { fontSize: 25, marginLeft: 15, flex: 1},
 
-    btn: {width:350, height:50, backgroundColor:'#FFFF00', alignItems: "center", justifyContent: "center", borderRadius:10, marginLeft:0, marginRight:0}
+    btn: {width:350, height:50, backgroundColor:'#FFFF00', alignItems: "center", justifyContent: "center", borderRadius:10, marginLeft:0, marginRight:0},
+
+    scrollView_h570: { height: height - 250}
 });
 
 export default styles;
