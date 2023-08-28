@@ -1,0 +1,99 @@
+[
+    {
+        "date": "2023-08-09 17:00:00",
+        "tanks": 109.870,
+        "LPG12": {"quantily": 200, "weight": 2.400},
+        "LPG45": {"quantily": 180, "weight": 8100.000},
+        "bottle12": 110,
+        "bottle45": 95
+    },
+    {
+        "date": "2023-08-10 17:00:00",
+        "tanks": 109.870,
+        "LPG12": {"quantily": 200, "weight": 2.400},
+        "LPG45": {"quantily": 180, "weight": 8100.000},
+        "bottle12": 110,
+        "bottle45": 95
+    },
+    {
+        "date": "2023-08-11 17:00:00",
+        "tanks": 109.870,
+        "LPG12": {"quantily": 200, "weight": 2.400},
+        "LPG45": {"quantily": 180, "weight": 8100.000},
+        "bottle12": 110,
+        "bottle45": 95
+    },
+    {
+        "date": "2023-08-12 17:00:00",
+        "tanks": 109.870,
+        "LPG12": {"quantily": 200, "weight": 2.400},
+        "LPG45": {"quantily": 180, "weight": 8100.000},
+        "bottle12": 110,
+        "bottle45": 95
+    },   
+    {
+        "date": "2023-08-13 17:00:00",
+        "tanks": 203.940,
+        "LPG12": {"quantily": 280, "weight": 3.360},
+        "LPG45": {"quantily": 220, "weight": 9900.000},
+        "bottle12": 100,
+        "bottle45": 75
+    },
+    {
+        "date": "2023-08-14 17:00:00",
+        "tanks": 125.340,
+        "LPG12": {"quantily": 300, "weight": 3.600},
+        "LPG45": {"quantily": 240, "weight": 10800.000},
+        "bottle12": 120,
+        "bottle45": 80
+    },
+    {
+        "date": "2023-08-15 17:00:00",
+        "tanks": 125.340,
+        "LPG12": {"quantily": 300, "weight": 3.600},
+        "LPG45": {"quantily": 240, "weight": 10800.000},
+        "bottle12": 120,
+        "bottle45": 80
+    },
+    {
+        "date": "2023-08-16 17:00:00",
+        "tanks": 125.340,
+        "LPG12": {"quantily": 300, "weight": 3.600},
+        "LPG45": {"quantily": 240, "weight": 10800.000},
+        "bottle12": 120,
+        "bottle45": 80
+    },
+    {
+        "date": "2023-08-17 17:00:00",
+        "tanks": 125.340,
+        "LPG12": {"quantily": 300, "weight": 3.600},
+        "LPG45": {"quantily": 240, "weight": 10800.000},
+        "bottle12": 120,
+        "bottle45": 80
+    },
+    {
+        "date": "2023-08-18 17:00:00",
+        "tanks": 125.340,
+        "LPG12": {"quantily": 300, "weight": 3.600},
+        "LPG45": {"quantily": 240, "weight": 10800.000},
+        "bottle12": 120,
+        "bottle45": 80
+    },
+    {
+        "date": "2023-08-19 17:00:00",
+        "tanks": 125.340,
+        "LPG12": {"quantily": 300, "weight": 3.600},
+        "LPG45": {"quantily": 240, "weight": 10800.000},
+        "bottle12": 120,
+        "bottle45": 80
+    },
+    {
+        "date": "2023-08-20 17:00:00",
+        "tanks": 125.340,
+        "LPG12": {"quantily": 300, "weight": 3.600},
+        "LPG45": {"quantily": 240, "weight": 10800.000},
+        "bottle12": 120,
+        "bottle45": 80
+    }
+    
+]

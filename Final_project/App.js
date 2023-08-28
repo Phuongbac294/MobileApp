@@ -1,6 +1,6 @@
-if (__DEV__) {
-  import('./ReactotronConfig').then(() => console.log('Reactotron Configured'));
-}
+// if (__DEV__) {
+//   import('./ReactotronConfig').then(() => console.log('Reactotron Configured'));
+// }
 
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
@@ -32,9 +32,9 @@ const Tab = createBottomTabNavigator();
 export default function App() {
  
   return (
-    <AppComponent.Provider value={{}}>
+    <AppComponent.Provider >
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Demo" screenOptions={styles.screenOptions}>
+        <Stack.Navigator initialRouteName="Login" screenOptions={styles.screenOptions}>
           <Stack.Screen name="Demo" component={Demo} screenOptions={{headerShown: 'flase'}}/>
           <Stack.Screen name="LoginIndex" component={LoginIndex} /> 
           <Stack.Screen name="Home" component={Home} options={{ title: 'Anphu Engery' }}/> 

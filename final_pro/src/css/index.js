@@ -31,10 +31,13 @@ const styles = StyleSheet.create({
                                         onPress={() => alert('Cập nhật dữ liệu mới')}
                                         title="Info"
                                         color="#fff"
+                                        screenOptions ={{BarBadge: 3}}
                                         >
                                             <Icon name="bell" color="#000000" size={30} />
                                         </TouchableOpacity>),
                         headerTitleAlign: 'center',
+                        headerShown:'false',
+                        
                     },
                     
 
@@ -67,7 +70,10 @@ const styles = StyleSheet.create({
 
     btn: {width:350, height:50, backgroundColor:'#FFFF00', alignItems: "center", justifyContent: "center", borderRadius:10, marginLeft:0, marginRight:0},
 
-    scrollView_h570: { height: height - 250}
+    scrollView_h570: { height: height - 270},
+
+    centeredView: {flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 22,},
+      modalView: {margin: 20, backgroundColor: '#EE82EE', borderRadius: 20, padding: 35, alignItems: 'center', shadowColor: '#000', shadowOffset: { width: 0, height: 2,},}
 });
 
 export default styles;

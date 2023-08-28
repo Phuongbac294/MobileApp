@@ -2,10 +2,10 @@ import React from 'react';
 import {View, Text, TouchableOpacity, TextInput, Image, SafeAreaView, Alert} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {useNavigation, } from '@react-navigation/native';
-import axios from 'axios';
+// import axios from 'axios';
 
 import styles from '../css/index';
-
+const User = [{name: "Phuong", password : "123456"},{name: "Thuan", password : "123456"}]
   
   function Login() {
     const navigation = useNavigation();
@@ -14,17 +14,23 @@ import styles from '../css/index';
     const [secureTextEntry, setSecureTextEntry] = React.useState(true);
 
     const LoginHandler = async () => {
-        try {
-            // const payload = { email: email, password: password}
-            // console.log('payload', payload);
-            // const {data} = await axios.post('https://localhost:3000/users/login', payload)
-            // Alert.alert(data.message)
-            // AsyncStorage.setItem('token', data.token);
-            // AsyncStorage.setItem('user', data.user);
-            navigation.navigate("Home")
+        const user = await User.find(item => item.name === name)
+        if (!user) return "No such user"
+        const pass = await User.find(item => item.password === password)
+        if (pass)  {
+            return navigation.navigate("Home")
+        } else { return "no such password" }
+        
+        // try {
+        //     const payload = { email: email, password: password}
+        //     console.log('payload', payload);
+        //     const {data} = await axios.post('https://localhost:3000/users/login', payload)
+        //     Alert.alert(data.message)
+        //     AsyncStorage.setItem('token', data.token);
+        //     AsyncStorage.setItem('user', data.user);
             
-        }
-        catch (err) {console.log(err);}
+        // }
+        // catch (err) {console.log(err);}
     }
     return(
         <SafeAreaView style={{...styles.container}}>
@@ -41,7 +47,7 @@ import styles from '../css/index';
             <View style={{...styles.col,}}>
                 <View style={{...styles.input, }}>
                     <Icon name="user" color="#1E90FF" size={30} />
-                    <TextInput style={{...styles.input_text_25}} placeholder="Email@gmail.com" value={name} onChangeText={e=> setEmail(e)}/>
+                    <TextInput style={{...styles.input_text_25}} placeholder="Username" value={name} onChangeText={e=> setEmail(e)}/>
                 </View>
                 <View style={{...styles.input, }}>
                     <Icon name="lock" color="#1E90FF" size={30} />
@@ -64,7 +70,7 @@ import styles from '../css/index';
                 </TouchableOpacity>
             </View>
             <View style={styles.col_1}>
-                <TouchableOpacity style={{...styles.btn,}} onPress={() => LoginHandler() }>
+                <TouchableOpacity style={{...styles.btn,}} onPress={() => {LoginHandler()}}>
                     <Text style={{fontSize:20, fontWeight: "600"}}>LOGIN</Text>
                 </TouchableOpacity>
             </View>
