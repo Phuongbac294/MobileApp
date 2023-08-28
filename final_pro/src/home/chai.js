@@ -13,7 +13,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 import styles from '../css/index';
 
-// const newdata = await axios.get('https://localhost:3000/chai/add');
+// const newdata = axios.get(`https://localhost:3000/chai/add`, );
 // console.log('data', newdata);
 // const data = newdata.reverse()
 // const data = []
@@ -339,7 +339,7 @@ function Chai() {
     const [lpg12, setLpg12] = React.useState(0);
     const [lpg45, setLpg45] = React.useState(0);
     const today = new Date()
-    const newdate = today.getFullYear() + ' ' + today.getMonth() + ' ' + today.getDate() + ' ' + today.getHours() + ' ' + today.getMinutes()
+    const newdate = today.getFullYear() + ' ' + (today.getMonth()+1) + ' ' + today.getDate() + ' ' + today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds()
     const HandlerChai = () => {
         const newData = {
             date: newdate,
@@ -347,10 +347,12 @@ function Chai() {
             LPG45: lpg45,
             MW: (lpg12*12 + lpg45*45) / 1000
         }
+        console.log(newData);
         newChai.push(newData);
         setModalVisible(!modalVisible)
         setLpg12(0)
         setLpg45(0)
+        console.log(newChai);
     }
 
     const ModalChai = () => {
@@ -363,32 +365,29 @@ function Chai() {
               setModalVisible(!modalVisible);
             }}>
                 <View style={styles.centeredView}>
-                <View style={styles.modalView}>
+                    <View style={styles.modalView}>
+                        
+                        <Text style={{...styles.text_h_20}}>Nhập số liệu chiết nạp</Text>
                     
-                    <Text style={{...styles.text_h_20}}>Nhập số liệu chiết nạp</Text>
-                    {/* <View style={{...styles.input, }}>
-                        <Text style={styles.input_text_25}>Ngày</Text>                        
-                        <TextInput style={{...styles.input_text_25, backgroundColor: "#ffffff"}} type = 'Date'  value={date} onChangeText={e=> setDate(e)}>{today.getDate()}</TextInput>
-                    </View> */}
-                    <View style={{...styles.input, }}>
-                        <Text style={styles.input_text_25}>Bình 12 kg</Text>                        
-                        <TextInput style={{...styles.input_text_25, backgroundColor: "#ffffff"}}  type="number" placeholder="Nhập số bình" value={lpg12} onChangeText={e=> setLpg12(e)}/>
+                        <View style={{...styles.input, }}>
+                            <Text style={styles.input_text_25}>Bình 12 kg</Text>                        
+                            <TextInput style={{...styles.input_text_25, backgroundColor: "#ffffff"}} type='string' placeholder="Nhập số bình" value={lpg12} onChangeText={e=> setLpg12(e)}/>
+                        </View>
+                        <View style={{...styles.input, }}>
+                            <Text style={styles.input_text_25}>Bình 45 kg</Text>                        
+                            <TextInput style={{...styles.input_text_25, backgroundColor: "#ffffff"}}  type='string' placeholder="Nhập số bình"  value={lpg45} onChangeText={e=> setLpg45(e)}/>
+                        </View>
+                        <TouchableOpacity
+                        style={{...styles.btn}}
+                        onPress={() => HandlerChai()}>
+                        <Text style={styles.text_h_20}>CẬP NHẬP</Text>
+                        </TouchableOpacity>
+                        <Pressable
+                        style={{...styles.btn, backgroundColor: "#00FFFF"}}
+                        onPress={() => setModalVisible(!modalVisible)}>
+                        <Text style={styles.text_h_20}>BỎ QUA</Text>
+                        </Pressable>
                     </View>
-                    <View style={{...styles.input, }}>
-                        <Text style={styles.input_text_25}>Bình 45 kg</Text>                        
-                        <TextInput style={{...styles.input_text_25, backgroundColor: "#ffffff"}} type="number"  placeholder="Nhập số bình"  value={lpg45} onChangeText={e=> setLpg45(e)}/>
-                    </View>
-                    <TouchableOpacity
-                    style={{...styles.btn}}
-                    onPress={() => HandlerChai()}>
-                    <Text style={styles.text_h_20}>CẬP NHẬP</Text>
-                    </TouchableOpacity>
-                    <Pressable
-                    style={{...styles.btn, backgroundColor: "#00FFFF"}}
-                    onPress={() => setModalVisible(!modalVisible)}>
-                    <Text style={styles.text_h_20}>BỎ QUA</Text>
-                    </Pressable>
-                </View>
                 </View>
             </Modal>
         )

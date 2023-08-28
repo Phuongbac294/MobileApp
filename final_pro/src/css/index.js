@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
 
     scrollView_h570: { height: height - 270},
 
-    centeredView: {flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 22,},
+    centeredView: {flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 22, height: height - 300},
       modalView: {margin: 20, backgroundColor: '#EE82EE', borderRadius: 20, padding: 35, alignItems: 'center', shadowColor: '#000', shadowOffset: { width: 0, height: 2,},}
 });
 

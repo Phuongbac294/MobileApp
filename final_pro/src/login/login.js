@@ -9,7 +9,7 @@ const User = [{name: "Phuong", password : "123456"},{name: "Thuan", password : "
   
   function Login() {
     const navigation = useNavigation();
-    const [name, setEmail] = React.useState("");
+    const [name, setName] = React.useState("");
     const [password, setPassword] = React.useState("");
     const [secureTextEntry, setSecureTextEntry] = React.useState(true);
 
@@ -47,7 +47,7 @@ const User = [{name: "Phuong", password : "123456"},{name: "Thuan", password : "
             <View style={{...styles.col,}}>
                 <View style={{...styles.input, }}>
                     <Icon name="user" color="#1E90FF" size={30} />
-                    <TextInput style={{...styles.input_text_25}} placeholder="Username" value={name} onChangeText={e=> setEmail(e)}/>
+                    <TextInput style={{...styles.input_text_25}} placeholder="Username" value={name} onChangeText={e=> setName(e)}/>
                 </View>
                 <View style={{...styles.input, }}>
                     <Icon name="lock" color="#1E90FF" size={30} />
