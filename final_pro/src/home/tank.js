@@ -36,63 +36,19 @@ const ItemTank = ({date, tank1, tank2, MW}) => (
     </View>
   );
 
-const CreateTank = () => {
-    return (
-        <View style={{...styles.col,}}>
-            <View style={{...styles.row,}}>
-                <View style={{...styles.col_1,}}>
-                    <Text style={{...styles.text_p_15}}>Date</Text>
-                </View>
-                <View style={{...styles.input, }}>                    
-                    <TextInput style={{...styles.input_text_25}} placeholder="Email@gmail.com" value={email} onChangeText={e=> setEmail(e)}/>
-                </View>
-            </View>
 
-            <View style={{...styles.col,}}>
-                <Text style={{...styles.text_h_20}}>Bồn số 1</Text>
-                <View style={{...styles.row,}}>
-                    <View style={{...styles.col_1,}}>
-                        <Text style={{...styles.text_p_15}}>Mức bồn</Text>
-                    </View>
-                    <View style={{...styles.input, }}>                    
-                        <TextInput style={{...styles.input_text_25}} value={level} onChangeText={e=> setEmail(e)}/>
-                    </View>
-                </View>
-                <View style={{...styles.row,}}>
-                    <View style={{...styles.col_1,}}>
-                        <Text style={{...styles.text_p_15}}>Áp suất bồn</Text>
-                    </View>
-                    <View style={{...styles.input, }}>                    
-                        <TextInput style={{...styles.input_text_25}} value={pre} onChangeText={e=> setEmail(e)}/>
-                    </View>
-                </View>
-                <View style={{...styles.row,}}>
-                    <View style={{...styles.col_1,}}>
-                        <Text style={{...styles.text_p_15}}>Nhiệt độ bồn</Text>
-                    </View>
-                    <View style={{...styles.input, }}>                    
-                        <TextInput style={{...styles.input_text_25}} value={temp} onChangeText={e=> setEmail(e)}/>
-                    </View>
-                </View>
-            </View>
-
-            <View style={styles.col_1}>
-                <TouchableOpacity style={{...styles.btn,}} onPress={() => HandlerTank() }>
-                    <Text style={{fontSize:20, fontWeight: "600"}}>Cập Nhật</Text>
-                </TouchableOpacity>
-            </View>
-        </View>
-    )
-}
 
 function Tank() {
     const navigation = useNavigation();
     const [modalVisible, setModalVisible] = React.useState(false);
-    const [level, setLevel] = React.useState('');
-    const [temp, setTemp] = React.useState('');
-    const [pre, setPre] = React.useState('');
+    const [level1, setLevel1] = React.useState('');
+    const [temp1, setTemp1] = React.useState('');
+    const [pre1, setPre1] = React.useState('');
+    const [level2, setLevel2] = React.useState('');
+    const [temp2, setTemp2] = React.useState('');
+    const [pre2, setPre2] = React.useState('');
 
-    const ModalTank1 = () => {
+    const ModalTank = () => {
         return (
             <Modal
             animationType="slide"
@@ -102,26 +58,48 @@ function Tank() {
               setModalVisible(!modalVisible);
             }}>
                 <View style={styles.centeredView}>
-                <View style={styles.modalView}>
-                    <Text style={{...styles.text_h_20}}>Nhập số liệu bồn 1</Text>
-                    <View style={{...styles.input, }}>
-                        <Text style={styles.input_text_25}>Mức bồn</Text>                        
-                        <TextInput style={{...styles.input_text_25, backgroundColor: "#ffffff"}} placeholder="Nhập số đo" value={level} onChangeText={e=> setLevel(e)}/>
+                    <View style={styles.modalView}>
+                        <Text style={{...styles.text_h_20}}>Nhập số liệu bồn 1</Text>
+                        <View style={{...styles.input, }}>
+                            <Text style={styles.input_text_25}>Mức bồn</Text>                        
+                            <TextInput style={{...styles.input_text_25, backgroundColor: "#ffffff"}} placeholder="Nhập số đo" value={level1} onChangeText={e=> setLevel1(e)}/>
+                        </View>
+                        <View style={{...styles.input, }}>
+                            <Text style={styles.input_text_25}>Nhiệt độ bồn</Text>                        
+                            <TextInput style={{...styles.input_text_25, backgroundColor: "#ffffff"}} placeholder="Nhập số đo" value={temp1} onChangeText={e=> setTemp1(e)}/>
+                        </View>
+                        <View style={{...styles.input, }}>
+                            <Text style={styles.input_text_25}>Áp suất bồn</Text>                        
+                            <TextInput style={{...styles.input_text_25, backgroundColor: "#ffffff"}} placeholder="Nhập số đo" value={pre1} onChangeText={e=> setPre1(e)}/>
+                        </View>
                     </View>
-                    <View style={{...styles.input, }}>
-                        <Text style={styles.input_text_25}>Nhiệt độ bồn</Text>                        
-                        <TextInput style={{...styles.input_text_25, backgroundColor: "#ffffff"}} placeholder="Nhập số đo" value={temp} onChangeText={e=> setTemp(e)}/>
+
+                    <View style={styles.modalView}>
+                        <Text style={{...styles.text_h_20}}>Nhập số liệu bồn 2</Text>
+                        <View style={{...styles.input, }}>
+                            <Text style={styles.input_text_25}>Mức bồn</Text>                        
+                            <TextInput style={{...styles.input_text_25, backgroundColor: "#ffffff"}} placeholder="Nhập số đo" value={level2} onChangeText={e=> setLevel2(e)}/>
+                        </View>
+                        <View style={{...styles.input, }}>
+                            <Text style={styles.input_text_25}>Nhiệt độ bồn</Text>                        
+                            <TextInput style={{...styles.input_text_25, backgroundColor: "#ffffff"}} placeholder="Nhập số đo" value={temp2} onChangeText={e=> setTemp2(e)}/>
+                        </View>
+                        <View style={{...styles.input, }}>
+                            <Text style={styles.input_text_25}>Áp suất bồn</Text>                        
+                            <TextInput style={{...styles.input_text_25, backgroundColor: "#ffffff"}} placeholder="Nhập số đo" value={pre2} onChangeText={e=> setPre2(e)}/>
+                        </View>
                     </View>
-                    <View style={{...styles.input, }}>
-                        <Text style={styles.input_text_25}>Áp suất bồn</Text>                        
-                        <TextInput style={{...styles.input_text_25, backgroundColor: "#ffffff"}} placeholder="Nhập số đo" value={pre} onChangeText={e=> setPre(e)}/>
-                    </View>
+
                     <Pressable
-                    style={{...styles.btn}}
-                    onPress={() => setModalVisible('tank2')}>
-                    <Text style={styles.text_h_20}>CẬP NHẬP</Text>
+                        style={{...styles.btn}}
+                        onPress={() => setModalVisible(false)}>
+                        <Text style={styles.text_h_20}>CẬP NHẬP</Text>
                     </Pressable>
-                </View>
+                    <Pressable
+                        style={{...styles.btn, backgroundColor: "#00FFFF"}}
+                        onPress={() => setModalVisible(!modalVisible)}>
+                        <Text style={styles.text_h_20}>BỎ QUA</Text>
+                    </Pressable>
                 </View>
             </Modal>
         )
@@ -155,6 +133,11 @@ function Tank() {
                     style={{...styles.btn}}
                     onPress={() => setModalVisible(false)}>
                     <Text style={styles.text_h_20}>CẬP NHẬP</Text>
+                    </Pressable>
+                    <Pressable
+                    style={{...styles.btn, backgroundColor: "#00FFFF"}}
+                    onPress={() => setModalVisible(!modalVisible)}>
+                    <Text style={styles.text_h_20}>BỎ QUA</Text>
                     </Pressable>
                 </View>
                 </View>
@@ -198,8 +181,8 @@ function Tank() {
     return(
         <View >
            <Menu/>
-           <ModalTank1/>
-           <ModalTank2/>
+           <ModalTank/>
+           {/* <ModalTank2/> */}
             <View style={{...styles.contai, paddingLeft: 5, paddingRight: 5}}>
                 <MenuList/>
                 <View style={{...styles.scrollView_h570}}>

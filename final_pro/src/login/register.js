@@ -23,6 +23,7 @@ function Register() {
                 <View style={{...styles.input,}}>
                     <Icon name="user" color="#1E90FF" size={30} />
                     <TextInput style={{...styles.input_text_25}} placeholder="Username" />
+                    
                 </View>
                 <View style={{...styles.input,}}>
                     <Icon name="lock" color="#1E90FF" size={30} />

@@ -14,6 +14,7 @@ const Tab = createBottomTabNavigator();
 
 export default function Home() {
     const navigation = useNavigation()
+    
     return (                    
         <Tab.Navigator 
             screenOptions={({ route }) => ({
@@ -41,9 +42,9 @@ export default function Home() {
                 
             })}
           >
-            <Tab.Screen name="Total" component={Total} options={{ tabBarBadge: 3 }} />
-            <Tab.Screen name="Tank" component={Tank}  screenOptions={{ headerShown: false}}/>
-            <Tab.Screen name="Chai" component={Chai} />
+            <Tab.Screen name="Total" component={Total} options={{ tabBarBadge: 3, headerShown: false }} />
+            <Tab.Screen name="Tank" component={Tank}  options={{headerShown: false}}/>
+            <Tab.Screen name="Chai" component={Chai} options={{headerShown: false}}/>
         </Tab.Navigator>
     )
 

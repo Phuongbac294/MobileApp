@@ -1,11 +1,11 @@
-import { StyleSheet } from "react-native";
-import { Button, TouchableOpacity } from "react-native";
+import { StyleSheet, Dimensions,  Button, TouchableOpacity  } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useNavigation,} from '@react-navigation/native';
-import {Dimensions} from 'react-native';
+import React from "react";
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
+
 
 // const menu = () => {
 //     const navigation = useNavigation();
@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
                         headerTitleStyle: {fontWeight: 'bold', justifyContent: 'center'},
                         headerLeft: () => (
                                         <TouchableOpacity
-                                        onPress={() => alert('Menu List')}
                                         title="Info"
                                         color="#fff"
                                         >
@@ -62,6 +61,7 @@ const styles = StyleSheet.create({
 
     logo: {width: 150, height: 150, borderTopStartRadius:75, borderTopEndRadius:75,  padding: 5, justifyContent: "center", alignItems: "center"},
     avata: {width: 100, height: 100, borderRadius:50,  padding: 5},
+    avata_30: {width: 30, height: 30, borderRadius:15,  padding: 5},
     img: {flex: 1, height: undefined, width: undefined, resizeMode: "cover",
     justifyContent: "center"},
 
@@ -72,8 +72,12 @@ const styles = StyleSheet.create({
 
     scrollView_h570: { height: height - 270},
 
-    centeredView: {flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 22, height: height - 300},
-      modalView: {margin: 20, backgroundColor: '#EE82EE', borderRadius: 20, padding: 35, alignItems: 'center', shadowColor: '#000', shadowOffset: { width: 0, height: 2,},}
+    centeredView: {flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 22, height: height - 300, backgroundColor: '#CCFFFF',},
+    modalView: {margin: 20, backgroundColor: '#EE82EE', borderRadius: 20, padding: 35, alignItems: 'center', shadowColor: '#000', shadowOffset: { width: 0, height: 2,},},
+
+    menudrawer: {
+        flex: 1,  padding: 0, paddingTop: 65, },
+    
 });
 
 export default styles;
